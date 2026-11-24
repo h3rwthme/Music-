@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Player — Unduh Versi Android &amp; Windows PC</title>
+  <title>Music Player — Unduh APK Android Terbaru</title>
   <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
   <style>
     :root {
@@ -16,15 +16,13 @@
       --accent: #1db954;
       --accent-hover: #22d363;
       --accent-soft: rgba(29, 185, 84, 0.14);
-      --pc-accent: #38bdf8;
-      --pc-hover: #60ccf9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
       background:
         radial-gradient(circle at 20% 0%, rgba(29, 185, 84, 0.18), transparent 45%),
-        radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.14), transparent 42%),
+        radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.14), transparent 40%),
         var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -37,7 +35,7 @@
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
     }
     h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); letter-spacing: -0.03em; }
-    .subtitle { color: var(--muted); max-width: 640px; font-size: 1.05rem; }
+    .subtitle { color: var(--muted); max-width: 620px; font-size: 1.05rem; }
     .pill {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 14px; border-radius: 999px;
@@ -48,60 +46,19 @@
     .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 14px 26px; border-radius: 999px; font-weight: 700; font-size: 0.98rem;
+      padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 1rem;
       text-decoration: none; transition: transform 0.15s ease, background 0.15s ease;
     }
     .btn:active { transform: scale(0.98); }
     .btn-primary { background: var(--accent); color: #052e16; }
     .btn-primary:hover { background: var(--accent-hover); }
-    .btn-pc { background: var(--pc-accent); color: #082f49; }
-    .btn-pc:hover { background: var(--pc-hover); }
     .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
     .btn-secondary:hover { background: var(--surface-hi); }
     .meta { font-size: 0.86rem; color: var(--muted); }
-    .alt-links {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
-      font-size: 0.85rem; color: var(--muted);
-    }
-    .alt-links a { color: #d4d4d8; text-underline-offset: 3px; }
-    .alt-links a:hover { color: #fff; }
-
-    /* Kartu pilihan platform Android & Windows PC */
-    .platforms {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .plat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px 22px;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .plat-head {
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    }
-    .plat-title { font-size: 1.05rem; font-weight: 700; }
-    .plat-tag {
-      font-size: 0.76rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
-    }
-    .plat-tag.android { background: var(--accent-soft); color: #4ade80; }
-    .plat-tag.windows { background: rgba(56, 189, 248, 0.14); color: #7dd3fc; }
-    .plat-desc { font-size: 0.88rem; color: var(--muted); }
-    .plat-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
-    .plat-btn {
-      font-size: 0.86rem; font-weight: 700; padding: 9px 16px; border-radius: 999px;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-    }
-    .plat-btn.android { background: var(--accent); color: #052e16; }
-    .plat-btn.windows { background: var(--pc-accent); color: #082f49; }
-    .plat-btn.ghost { background: rgba(255,255,255,0.06); color: #e4e4e7; border: 1px solid var(--border); }
 
     /* Spotlight paling besar: Smart Radio & Cara Mix & Match Terbaik */
     .radio-spotlight {
-      margin-top: 34px;
+      margin-top: 40px;
       background:
         radial-gradient(circle at 85% 15%, rgba(29, 185, 84, 0.18), transparent 48%),
         var(--surface);
@@ -216,60 +173,21 @@
       <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Logo Music Player" />
       <div class="pill">
         <span class="dot"></span>
-        <span id="release-label">v1.0.2 · Tersedia untuk Android &amp; Windows PC</span>
+        <span id="release-label">v1.0.2 · Android 7.0+ (arm64-v8a) · ~8.3 MB</span>
       </div>
       <h1>Music Player</h1>
       <p class="subtitle">
-        Pemutar musik ringan dengan tema warna adaptif untuk <strong>Android</strong> &amp; <strong>Windows PC</strong>, dibangun pakai Rust (Dioxus 0.7) dan layanan audio native Kotlin.
+        Pemutar musik Android ringan dengan tema warna adaptif, dibangun pakai Rust (Dioxus 0.7) dan layanan audio native Kotlin.
       </p>
       <div class="actions">
         <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">
-          ⬇ Unduh Android (.apk)
-        </a>
-        <a class="btn btn-pc" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player-setup.exe">
-          💻 Unduh Windows PC (.exe)
+          ⬇ Unduh APK Terbaru
         </a>
         <a class="btn btn-secondary" href="https://github.com/h3rwthme/Music-">
           Lihat di GitHub
         </a>
       </div>
-      <div class="alt-links">
-        <span id="size-android">Android APK: ~8.3 MB</span>
-        <span>·</span>
-        <span id="size-win-exe">Windows Installer: ~3.5 MB</span>
-        <span>·</span>
-        <a href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player-windows.zip" id="link-win-zip">Windows Portable (.zip)</a>
-      </div>
       <p class="meta" id="release-date">Langsung timpa install di atas versi lama — playlist, foto cover, riwayat &amp; cache offline tetap aman.</p>
-    </section>
-
-    <section class="platforms">
-      <div class="plat-card">
-        <div class="plat-head">
-          <div class="plat-title">Android (HP &amp; Tablet)</div>
-          <span class="plat-tag android">arm64-v8a · Android 7.0+</span>
-        </div>
-        <p class="plat-desc">
-          Standalone penuh (server musik &amp; cache offline tertanam di dalam HP), navigasi Back native, widget layar utama adaptif, dan pemutaran layar mati aman.
-        </p>
-        <div class="plat-actions">
-          <a class="plat-btn android" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ music-player.apk</a>
-        </div>
-      </div>
-
-      <div class="plat-card">
-        <div class="plat-head">
-          <div class="plat-title">Windows PC (64-bit)</div>
-          <span class="plat-tag windows">Windows 10 / 11</span>
-        </div>
-        <p class="plat-desc">
-          Aplikasi desktop ringan berbasis Rust + WebView2 bawaan Windows. Pilih installer <code>.exe</code> (otomatis buat shortcut) atau versi portable <code>.zip</code> tanpa install.
-        </p>
-        <div class="plat-actions">
-          <a class="plat-btn windows" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player-setup.exe">💻 Installer (.exe)</a>
-          <a class="plat-btn ghost" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player-windows.zip">📦 Portable (.zip)</a>
-        </div>
-      </div>
     </section>
 
     <!-- SPOTLIGHT UTAMA & PALING BESAR: SMART RADIO MIX & MATCH -->
@@ -315,8 +233,7 @@
         <span class="whats-new__tag" id="whats-new-tag">v1.0.2</span>
       </div>
       <ul id="whats-new-list">
-        <li><strong>Versi Windows PC (.exe &amp; Portable .zip):</strong> Kini tersedia untuk Windows 10/11 64-bit selain Android APK.</li>
-        <li><strong>Navigasi Back Android Native:</strong> Tekan atau geser Back menutup bottom sheet dulu, mundur rapi dari Lagu/Playlist/Artis balik ke hasil Pencarian yang masih utuh, lanjut balik ke Beranda, lalu minimize tanpa mematikan musik.</li>
+        <li><strong>Navigasi Back Android Native:</strong> Tekan atau geser Back sekarang menutup bottom sheet dulu, mundur rapi dari Lagu/Playlist/Artis balik ke hasil Pencarian yang masih utuh, lanjut balik ke Beranda, lalu minimize ke background tanpa mematikan musik.</li>
         <li><strong>Tampilan Player Lebih Bersih:</strong> Label sumber di bawah cover album saat lagu diputar sudah dihilangkan agar tampilan makin rapi.</li>
         <li><strong>Smart Radio Mix &amp; Match:</strong> Antrean terjaga ±8 lagu ke depan dengan pola streak artis utama, blok band mirip, selipan rutin, dan anti lagu dobel.</li>
       </ul>
@@ -357,25 +274,11 @@
       .then((r) => (r.ok ? r.json() : null))
       .then((rel) => {
         if (!rel || !rel.tag_name) return;
-        const assets = rel.assets || [];
-        const apk = assets.find((a) => a.name.endsWith(".apk"));
-        const exe = assets.find((a) => a.name.endsWith(".exe"));
-        const zip = assets.find((a) => a.name.endsWith(".zip"));
+        const apk = (rel.assets || []).find((a) => a.name.endsWith(".apk"));
+        const mb = apk ? ` · ${(apk.size / 1048576).toFixed(1)} MB` : "";
         document.getElementById("release-label").textContent =
-          `${rel.tag_name} · Tersedia untuk Android & Windows PC`;
+          `${rel.tag_name} · Android arm64-v8a${mb}`;
         document.getElementById("whats-new-tag").textContent = rel.tag_name;
-        if (apk) {
-          document.getElementById("size-android").textContent =
-            `Android APK: ${(apk.size / 1048576).toFixed(1)} MB`;
-        }
-        if (exe) {
-          document.getElementById("size-win-exe").textContent =
-            `Windows Installer: ${(exe.size / 1048576).toFixed(1)} MB`;
-        }
-        if (zip) {
-          document.getElementById("link-win-zip").textContent =
-            `Windows Portable (.zip · ${(zip.size / 1048576).toFixed(1)} MB)`;
-        }
         if (rel.published_at) {
           const dt = new Date(rel.published_at).toLocaleDateString("id-ID", {
             year: "numeric", month: "short", day: "numeric"
