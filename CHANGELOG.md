@@ -2,10 +2,11 @@
 
 All notable releases of **Music Player** are documented here.
 
-## [v1.0.4] - 2026-11-24
+## [v1.0.5] - 2026-11-24
 
 ### Added & Improved
-- **Full Classic 60 fps Lyrics Animation on `Maksimal` Quality**: Selecting **Maksimal** in `Settings → Tampilan` now restores the full GPU cascade lyrics engine (`lyrics_sync_classic.js`) with continuous 60 fps word-by-word sweep and no idle throttling, while **Seimbang** and **Hemat baterai** retain power-saving lyrics rendering.
+- **Refined Custom Icons & UI Polish**: Added dedicated icons (`gauge`, `scale`, `battery-low`, `audio-lines`, `users`) across Quality Picker, Home, Explore, Up Next queue, and Player controls with matching CSS refinements.
+- **Full Classic 60 fps Lyrics Animation on `Maksimal` Quality**: Selecting **Maksimal** in `Settings → Tampilan` uses the full GPU cascade lyrics engine (`lyrics_sync_classic.js`) with continuous 60 fps word-by-word sweep and no idle throttling, while **Seimbang** and **Hemat baterai** retain power-saving lyrics rendering.
 
 ### Build
 - Standalone signed Android `arm64-v8a` release APK (after `llvm-strip` + R8 shrinking).
