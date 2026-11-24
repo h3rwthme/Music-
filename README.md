@@ -15,17 +15,22 @@
 
   <p>
     <a href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">
-      <img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20Download%20Latest%20APK-Direct%20Install-1db954?style=for-the-badge" alt="Download Latest APK" />
+      <img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20Android%20APK-Direct%20Install-1db954?style=for-the-badge" alt="Download Android APK" />
     </a>
     &nbsp;
-    <a href="https://github.com/h3rwthme/Music-/releases">
-      <img src="https://img.shields.io/badge/All%20Releases-Archive-27272a?style=for-the-badge" alt="All Releases" />
+    <a href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player-setup.exe">
+      <img src="https://img.shields.io/badge/%F0%9F%92%BB%20Windows%20PC-Installer%20.exe-38bdf8?style=for-the-badge" alt="Download Windows Setup EXE" />
+    </a>
+    &nbsp;
+    <a href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player-windows.zip">
+      <img src="https://img.shields.io/badge/Windows%20Portable-.zip-27272a?style=for-the-badge" alt="Download Windows Portable ZIP" />
     </a>
   </p>
 
   <sub>
-    Bookmark the direct link — it always downloads the newest release:<br/>
-    <code>https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk</code>
+    Bookmark direct links — always serve the newest release:<br/>
+    Android: <code>https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk</code><br/>
+    Windows PC: <code>https://github.com/h3rwthme/Music-/releases/latest/download/music-player-setup.exe</code>
   </sub>
 </div>
 

@@ -12,4 +12,5 @@ All notable releases of **Music Player** are documented here.
 - **Adaptive Cover Theme (Onyx Refresh)**, cover drag (`Slide` / 3D `Book`), native `NowPlayingWidget`, immersive phone & tablet layout, custom playlists with cover uploads, chunked offline cache, and synced lyrics.
 
 ### Build
-- Standalone signed `arm64-v8a` release APK (`~8.3 MB` after `llvm-strip` + R8 shrinking).
+- Standalone signed Android `arm64-v8a` release APK (`~8.3 MB` after `llvm-strip` + R8 shrinking).
+- Lightweight Windows 64-bit desktop builds: `music-player-setup.exe` (NSIS LZMA installer) & `music-player-windows.zip` (portable).
