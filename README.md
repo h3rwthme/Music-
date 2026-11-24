@@ -35,6 +35,13 @@
   <img src="screenshots/banner.png" alt="Music Player Showcase Banner" width="100%" />
 </p>
 
+### Smart Radio Mix & Match — Cara Pakai Terbaik
+> **Tips:** Klik ikon **titik tiga (`⋮`)** di samping lagu favoritmu lalu pilih **`Start radio`** supaya mesin **Smart Radio** langsung meracik mix & match yang paling pas (10–12 streak artis utama → blok 2–3 lagu per band mirip → selipan artis utama tiap ±6 lagu → 0 lagu dobel).
+
+<p align="center">
+  <img src="screenshots/smart-radio.png" alt="Panduan Smart Radio: Klik titik tiga lalu pilih Start radio" width="100%" />
+</p>
+
 ---
 
 ## Overview

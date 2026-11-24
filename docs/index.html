@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Player — Download Latest Android APK</title>
+  <title>Music Player — Unduh APK Android Terbaru</title>
   <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
   <style>
     :root {
@@ -15,26 +15,27 @@
       --muted: #a1a1aa;
       --accent: #1db954;
       --accent-hover: #22d363;
+      --accent-soft: rgba(29, 185, 84, 0.14);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
       background:
-        radial-gradient(circle at 20% 0%, rgba(29, 185, 84, 0.16), transparent 45%),
+        radial-gradient(circle at 20% 0%, rgba(29, 185, 84, 0.18), transparent 45%),
         radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.14), transparent 40%),
         var(--bg);
       color: var(--text);
       min-height: 100vh;
       line-height: 1.6;
     }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 48px 20px 72px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 20px 76px; }
     .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .logo {
       width: 84px; height: 84px; border-radius: 22px;
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
     }
-    h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; }
-    .subtitle { color: var(--muted); max-width: 600px; font-size: 1.05rem; }
+    h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); letter-spacing: -0.03em; }
+    .subtitle { color: var(--muted); max-width: 620px; font-size: 1.05rem; }
     .pill {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 14px; border-radius: 999px;
@@ -45,7 +46,7 @@
     .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 1rem;
+      padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 1rem;
       text-decoration: none; transition: transform 0.15s ease, background 0.15s ease;
     }
     .btn:active { transform: scale(0.98); }
@@ -53,34 +54,103 @@
     .btn-primary:hover { background: var(--accent-hover); }
     .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
     .btn-secondary:hover { background: var(--surface-hi); }
-    .meta { font-size: 0.85rem; color: var(--muted); }
+    .meta { font-size: 0.86rem; color: var(--muted); }
+
+    /* Spotlight paling besar: Smart Radio & Cara Mix & Match Terbaik */
+    .radio-spotlight {
+      margin-top: 40px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(29, 185, 84, 0.18), transparent 48%),
+        var(--surface);
+      border: 1px solid rgba(52, 211, 153, 0.34);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+    }
+    .spot-head {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 14px;
+    }
+    .spot-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      color: #4ade80; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .spot-title {
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      font-weight: 800; letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+    .spot-desc {
+      color: #d4d4d8; font-size: 0.98rem; max-width: 780px; margin-bottom: 20px;
+    }
+    .spot-desc strong { color: #6ee7b7; }
+    .spot-img {
+      width: 100%; border-radius: 18px; overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.65);
+    }
+    .spot-img img { width: 100%; display: block; }
+    .spot-steps {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .spot-step {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .spot-num {
+      width: 30px; height: 30px; border-radius: 999px;
+      background: var(--accent); color: #052e16;
+      font-weight: 800; font-size: 0.9rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .spot-step h3 { font-size: 0.95rem; margin-bottom: 4px; color: #fff; }
+    .spot-step p { font-size: 0.86rem; color: var(--muted); line-height: 1.45; }
+
     .whats-new {
       margin-top: 32px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 20px 24px;
+      border-radius: 20px;
+      padding: 22px 24px;
     }
     .whats-new__head {
       display: flex; align-items: center; justify-content: space-between;
       gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
     }
-    .whats-new__head h2 { font-size: 1rem; font-weight: 600; }
+    .whats-new__head h2 { font-size: 1.05rem; font-weight: 700; }
     .whats-new__tag {
       font-size: 0.78rem; padding: 3px 10px; border-radius: 999px;
-      background: rgba(29, 185, 84, 0.14); color: #4ade80; font-weight: 600;
+      background: var(--accent-soft); color: #4ade80; font-weight: 700;
     }
-    .whats-new ul { padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
-    .whats-new li { margin-bottom: 4px; }
+    .whats-new ul { padding-left: 18px; color: var(--muted); font-size: 0.93rem; }
+    .whats-new li { margin-bottom: 6px; }
+    .whats-new li strong { color: #f4f4f5; }
+
+    .section-label {
+      margin-top: 36px; margin-bottom: 14px;
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em;
+    }
     .banner {
-      margin-top: 28px; width: 100%; border-radius: 20px;
+      width: 100%; border-radius: 20px;
       border: 1px solid var(--border); overflow: hidden;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
     }
     .banner img { width: 100%; display: block; }
+
     .grid {
       margin-top: 28px; display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
     }
     .card {
       background: var(--surface); border: 1px solid var(--border);
@@ -88,71 +158,114 @@
     }
     .card h3 { font-size: 1rem; margin-bottom: 6px; }
     .card p { font-size: 0.9rem; color: var(--muted); }
-    footer { text-align: center; margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+    footer { text-align: center; margin-top: 56px; color: var(--muted); font-size: 0.86rem; }
     footer a { color: var(--text); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 32px 14px 56px; }
+      .radio-spotlight { padding: 18px; border-radius: 20px; }
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <section class="hero">
-      <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player Logo" />
+      <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Logo Music Player" />
       <div class="pill">
         <span class="dot"></span>
         <span id="release-label">v1.0.2 · Android 7.0+ (arm64-v8a) · ~8.3 MB</span>
       </div>
       <h1>Music Player</h1>
       <p class="subtitle">
-        Adaptive-color Android music player built with Rust, Dioxus 0.7, and native Kotlin background audio services.
+        Pemutar musik Android ringan dengan tema warna adaptif, dibangun pakai Rust (Dioxus 0.7) dan layanan audio native Kotlin.
       </p>
       <div class="actions">
         <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">
-          Download Latest APK
+          ⬇ Unduh APK Terbaru
         </a>
         <a class="btn btn-secondary" href="https://github.com/h3rwthme/Music-">
-          View on GitHub
+          Lihat di GitHub
         </a>
       </div>
-      <p class="meta" id="release-date">Install directly over your previous version — playlists, history &amp; offline cache stay intact.</p>
+      <p class="meta" id="release-date">Langsung timpa install di atas versi lama — playlist, foto cover, riwayat &amp; cache offline tetap aman.</p>
+    </section>
+
+    <!-- SPOTLIGHT UTAMA & PALING BESAR: SMART RADIO MIX & MATCH -->
+    <section class="radio-spotlight" id="smart-radio">
+      <div class="spot-head">
+        <span class="spot-badge">✦ Wajib Coba · Tips Mix &amp; Match Terbaik</span>
+      </div>
+      <h2 class="spot-title">Mau Mix &amp; Match Lagu Paling Enak? Klik Titik Tiga (⋮) → Pencet “Start radio”</h2>
+      <p class="spot-desc">
+        Supaya antrean lagu otomatis nyambung sesuai selera dan nggak acak-acakan, cukup <strong>klik ikon titik tiga (⋮)</strong> di samping lagu favoritmu lalu pilih <strong>Start radio</strong>. Mesin <strong>Smart Radio</strong> bakal meracik alur lagu seirama tanpa lagu dobel!
+      </p>
+      <div class="spot-img">
+        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/smart-radio.png" alt="Panduan Smart Radio: Klik titik tiga lalu pilih Start radio" />
+      </div>
+      <div class="spot-steps">
+        <div class="spot-step">
+          <span class="spot-num">1</span>
+          <div>
+            <h3>Klik Titik Tiga (⋮)</h3>
+            <p>Ketuk ikon <strong>⋮</strong> di kanan lagu favoritmu (atau tekan tahan lagunya) dari Beranda, Pencarian, Album, atau Playlist.</p>
+          </div>
+        </div>
+        <div class="spot-step">
+          <span class="spot-num">2</span>
+          <div>
+            <h3>Pencet “Start radio”</h3>
+            <p>Pilih menu <strong>Start radio</strong> di panel bawah supaya mesin Smart Radio aktif meracik antrean otomatis.</p>
+          </div>
+        </div>
+        <div class="spot-step">
+          <span class="spot-num">3</span>
+          <div>
+            <h3>Alur Mix &amp; Match Mulus</h3>
+            <p>Mulai 10–12 lagu artis utama dulu, geser halus ke blok 2–3 lagu per band mirip, selipan artis utama tiap ±6 lagu, dan 0 lagu dobel.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="whats-new">
       <div class="whats-new__head">
-        <h2>What's New</h2>
+        <h2>Yang Baru di Versi Ini</h2>
         <span class="whats-new__tag" id="whats-new-tag">v1.0.2</span>
       </div>
       <ul id="whats-new-list">
-        <li><strong>Native Android Back Navigation:</strong> Pressing or swiping Back now closes open sheets, steps back through Player/Playlist/Artist to your preserved Search results, returns to Home, and minimizes cleanly without stopping playback.</li>
-        <li><strong>Cleaner Player UI:</strong> Removed provider badge clutter beneath album artwork and tidied artist metadata labels.</li>
-        <li><strong>Smart Radio Queue Engine:</strong> 10–12 song artist streaks, 2–3 song similar-band blocks, seed interleaving every ±6 tracks, and zero duplicates.</li>
+        <li><strong>Navigasi Back Android Native:</strong> Tekan atau geser Back sekarang menutup bottom sheet dulu, mundur rapi dari Lagu/Playlist/Artis balik ke hasil Pencarian yang masih utuh, lanjut balik ke Beranda, lalu minimize ke background tanpa mematikan musik.</li>
+        <li><strong>Tampilan Player Lebih Bersih:</strong> Label sumber di bawah cover album saat lagu diputar sudah dihilangkan agar tampilan makin rapi.</li>
+        <li><strong>Smart Radio Mix &amp; Match:</strong> Antrean terjaga ±8 lagu ke depan dengan pola streak artis utama, blok band mirip, selipan rutin, dan anti lagu dobel.</li>
       </ul>
     </section>
 
+    <h2 class="section-label">Tampilan Aplikasi</h2>
     <div class="banner">
-      <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/banner.png" alt="Music Player Preview" />
+      <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/banner.png" alt="Pratinjau Tampilan Music Player" />
     </div>
 
     <section class="grid">
       <div class="card">
-        <h3>Adaptive Color Engine</h3>
-        <p>Every cover art dynamically shapes the player's gradients, glow, and home-screen widget.</p>
+        <h3>Tema Warna Adaptif</h3>
+        <p>Warna gradasi, tombol, hingga widget layar utama otomatis mengikuti warna cover album yang sedang diputar.</p>
       </div>
       <div class="card">
-        <h3>Smart Radio Queue</h3>
-        <p>10–12 song artist streaks, 2–3 song similar-band blocks, seed interleaving every ±6 tracks, zero duplicates.</p>
+        <h3>Smart Radio Mix &amp; Match</h3>
+        <p>Klik <strong>⋮ → Start radio</strong> untuk 10–12 streak artis utama, blok 2–3 lagu band mirip, selipan tiap ±6 lagu, dan tanpa duplikat.</p>
       </div>
       <div class="card">
-        <h3>Native Back &amp; Gestures</h3>
-        <p>Proper Android Back navigation with preserved Search state plus smooth Slide &amp; 3D Book cover transitions.</p>
+        <h3>Navigasi Back &amp; Gestur Cover</h3>
+        <p>Tombol Back Android mulus balik ke Pencarian &amp; Beranda, plus animasi geser cover mode Slide &amp; Buku 3D.</p>
       </div>
       <div class="card">
-        <h3>Offline &amp; Background Ready</h3>
-        <p>Chunked disk cache + native Kotlin MediaSession for uninterrupted lock-screen and background playback.</p>
+        <h3>Cache Offline &amp; Layar Mati Aman</h3>
+        <p>Cache disk per potongan + layanan native MediaSession supaya seek lancar saat sinyal jelek dan musik tetap jalan saat layar mati.</p>
       </div>
     </section>
 
     <footer>
-      Built by <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
-      <a href="https://github.com/h3rwthme/Music-/releases">Latest Release</a>
+      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
+      <a href="https://github.com/h3rwthme/Music-/releases">Rilis Terbaru</a>
     </footer>
   </main>
 
@@ -167,11 +280,11 @@
           `${rel.tag_name} · Android arm64-v8a${mb}`;
         document.getElementById("whats-new-tag").textContent = rel.tag_name;
         if (rel.published_at) {
-          const dt = new Date(rel.published_at).toLocaleDateString("en-US", {
+          const dt = new Date(rel.published_at).toLocaleDateString("id-ID", {
             year: "numeric", month: "short", day: "numeric"
           });
           document.getElementById("release-date").textContent =
-            `Updated ${dt} · Install directly over your previous version — playlists & offline cache stay intact.`;
+            `Diperbarui ${dt} · Langsung timpa install di atas versi lama — playlist & cache offline tetap aman.`;
         }
       })
       .catch(() => {});
