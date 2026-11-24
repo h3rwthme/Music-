@@ -9,6 +9,7 @@
     :root {
       --bg: #09090b;
       --surface: #141418;
+      --surface-hi: #1b1b22;
       --border: rgba(255, 255, 255, 0.08);
       --text: #fafafa;
       --muted: #a1a1aa;
@@ -33,7 +34,7 @@
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
     }
     h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; }
-    .subtitle { color: var(--muted); max-width: 580px; font-size: 1.05rem; }
+    .subtitle { color: var(--muted); max-width: 600px; font-size: 1.05rem; }
     .pill {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 14px; border-radius: 999px;
@@ -51,17 +52,35 @@
     .btn-primary { background: var(--accent); color: #052e16; }
     .btn-primary:hover { background: var(--accent-hover); }
     .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
-    .btn-secondary:hover { background: #1e1e24; }
+    .btn-secondary:hover { background: var(--surface-hi); }
     .meta { font-size: 0.85rem; color: var(--muted); }
+    .whats-new {
+      margin-top: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 24px;
+    }
+    .whats-new__head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .whats-new__head h2 { font-size: 1rem; font-weight: 600; }
+    .whats-new__tag {
+      font-size: 0.78rem; padding: 3px 10px; border-radius: 999px;
+      background: rgba(29, 185, 84, 0.14); color: #4ade80; font-weight: 600;
+    }
+    .whats-new ul { padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
+    .whats-new li { margin-bottom: 4px; }
     .banner {
-      margin-top: 40px; width: 100%; border-radius: 20px;
+      margin-top: 28px; width: 100%; border-radius: 20px;
       border: 1px solid var(--border); overflow: hidden;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
     }
     .banner img { width: 100%; display: block; }
     .grid {
-      margin-top: 32px; display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+      margin-top: 28px; display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px;
     }
     .card {
       background: var(--surface); border: 1px solid var(--border);
@@ -79,7 +98,7 @@
       <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player Logo" />
       <div class="pill">
         <span class="dot"></span>
-        <span id="release-label">Android 7.0+ (arm64-v8a) · ~8.3 MB</span>
+        <span id="release-label">v1.0.2 · Android 7.0+ (arm64-v8a) · ~8.3 MB</span>
       </div>
       <h1>Music Player</h1>
       <p class="subtitle">
@@ -93,7 +112,19 @@
           View on GitHub
         </a>
       </div>
-      <p class="meta" id="release-date">Install directly over your previous version — playlists &amp; offline cache stay intact.</p>
+      <p class="meta" id="release-date">Install directly over your previous version — playlists, history &amp; offline cache stay intact.</p>
+    </section>
+
+    <section class="whats-new">
+      <div class="whats-new__head">
+        <h2>What's New</h2>
+        <span class="whats-new__tag" id="whats-new-tag">v1.0.2</span>
+      </div>
+      <ul id="whats-new-list">
+        <li><strong>Native Android Back Navigation:</strong> Pressing or swiping Back now closes open sheets, steps back through Player/Playlist/Artist to your preserved Search results, returns to Home, and minimizes cleanly without stopping playback.</li>
+        <li><strong>Cleaner Player UI:</strong> Removed provider badge clutter beneath album artwork and tidied artist metadata labels.</li>
+        <li><strong>Smart Radio Queue Engine:</strong> 10–12 song artist streaks, 2–3 song similar-band blocks, seed interleaving every ±6 tracks, and zero duplicates.</li>
+      </ul>
     </section>
 
     <div class="banner">
@@ -110,14 +141,18 @@
         <p>10–12 song artist streaks, 2–3 song similar-band blocks, seed interleaving every ±6 tracks, zero duplicates.</p>
       </div>
       <div class="card">
+        <h3>Native Back &amp; Gestures</h3>
+        <p>Proper Android Back navigation with preserved Search state plus smooth Slide &amp; 3D Book cover transitions.</p>
+      </div>
+      <div class="card">
         <h3>Offline &amp; Background Ready</h3>
-        <p>Chunked disk cache + native Kotlin MediaSession for smooth lock-screen and background playback.</p>
+        <p>Chunked disk cache + native Kotlin MediaSession for uninterrupted lock-screen and background playback.</p>
       </div>
     </section>
 
     <footer>
       Built by <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
-      <a href="https://github.com/h3rwthme/Music-/releases">All Releases</a>
+      <a href="https://github.com/h3rwthme/Music-/releases">Latest Release</a>
     </footer>
   </main>
 
@@ -130,6 +165,14 @@
         const mb = apk ? ` · ${(apk.size / 1048576).toFixed(1)} MB` : "";
         document.getElementById("release-label").textContent =
           `${rel.tag_name} · Android arm64-v8a${mb}`;
+        document.getElementById("whats-new-tag").textContent = rel.tag_name;
+        if (rel.published_at) {
+          const dt = new Date(rel.published_at).toLocaleDateString("en-US", {
+            year: "numeric", month: "short", day: "numeric"
+          });
+          document.getElementById("release-date").textContent =
+            `Updated ${dt} · Install directly over your previous version — playlists & offline cache stay intact.`;
+        }
       })
       .catch(() => {});
   </script>
