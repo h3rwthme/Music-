@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Player — Download Latest Android APK</title>
+  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
+  <style>
+    :root {
+      --bg: #09090b;
+      --surface: #141418;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --accent: #1db954;
+      --accent-hover: #22d363;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(29, 185, 84, 0.16), transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.14), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 48px 20px 72px; }
+    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .logo {
+      width: 84px; height: 84px; border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; }
+    .subtitle { color: var(--muted); max-width: 580px; font-size: 1.05rem; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background: var(--accent); color: #052e16; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: #1e1e24; }
+    .meta { font-size: 0.85rem; color: var(--muted); }
+    .banner {
+      margin-top: 40px; width: 100%; border-radius: 20px;
+      border: 1px solid var(--border); overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+    .banner img { width: 100%; display: block; }
+    .grid {
+      margin-top: 32px; display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+    }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+    }
+    .card h3 { font-size: 1rem; margin-bottom: 6px; }
+    .card p { font-size: 0.9rem; color: var(--muted); }
+    footer { text-align: center; margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--text); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player Logo" />
+      <div class="pill">
+        <span class="dot"></span>
+        <span id="release-label">Android 7.0+ (arm64-v8a) · ~8.3 MB</span>
+      </div>
+      <h1>Music Player</h1>
+      <p class="subtitle">
+        Adaptive-color Android music player built with Rust, Dioxus 0.7, and native Kotlin background audio services.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">
+          Download Latest APK
+        </a>
+        <a class="btn btn-secondary" href="https://github.com/h3rwthme/Music-">
+          View on GitHub
+        </a>
+      </div>
+      <p class="meta" id="release-date">Install directly over your previous version — playlists &amp; offline cache stay intact.</p>
+    </section>
+
+    <div class="banner">
+      <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/banner.png" alt="Music Player Preview" />
+    </div>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Adaptive Color Engine</h3>
+        <p>Every cover art dynamically shapes the player's gradients, glow, and home-screen widget.</p>
+      </div>
+      <div class="card">
+        <h3>Smart Radio Queue</h3>
+        <p>10–12 song artist streaks, 2–3 song similar-band blocks, seed interleaving every ±6 tracks, zero duplicates.</p>
+      </div>
+      <div class="card">
+        <h3>Offline &amp; Background Ready</h3>
+        <p>Chunked disk cache + native Kotlin MediaSession for smooth lock-screen and background playback.</p>
+      </div>
+    </section>
+
+    <footer>
+      Built by <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
+      <a href="https://github.com/h3rwthme/Music-/releases">All Releases</a>
+    </footer>
+  </main>
+
+  <script>
+    fetch("https://api.github.com/repos/h3rwthme/Music-/releases/latest")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((rel) => {
+        if (!rel || !rel.tag_name) return;
+        const apk = (rel.assets || []).find((a) => a.name.endsWith(".apk"));
+        const mb = apk ? ` · ${(apk.size / 1048576).toFixed(1)} MB` : "";
+        document.getElementById("release-label").textContent =
+          `${rel.tag_name} · Android arm64-v8a${mb}`;
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>
