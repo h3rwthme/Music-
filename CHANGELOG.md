@@ -2,6 +2,19 @@
 
 All notable releases of **Music Player** are documented here.
 
+## [v1.0.7] - 2026-11-25
+
+### Added & Improved
+- **Native 10-Band Equalizer (Android)**: Interactive 10-point frequency curve (`31 Hz–16 kHz`, `±12 dB`) with presets backed by Android's native `android.media.audiofx.Equalizer` attached to `MediaPlayer`.
+- **Orbit 3D Cover Transitions**: Replaces Book mode with a smooth GPU-only 3D ring carousel (`Slide` / `Orbit` / `Off`) that follows touch drag naturally.
+- **Universal Smart Radio**: Automatically kicks in for loose tracks (Search, Charts, Recently Played), preserves Album/Playlist order before seamlessly continuing with radio, learns from early skips (`< 30s`), avoids recent repeats, and favors liked songs.
+- **Friendlier Playlists & Unified Disukai**: Multi-playlist picker sheet with live checkmarks, quick `+` button on Player/PlayerBar/Now Playing panel, in-playlist *Add songs* search & suggestions, and merged **Disukai** collection.
+- **Honest Monthly Recap & Yearly Wrapped**: Pure per-month listening log (`mp.listen_log`), interactive Recap stories (minutes, top 5 tracks, top artist, favorite hour, active days, month-over-month comparison), and annual `/wrapped` view without dummy sample data.
+- **Clean Onboarding**: Added **Lewati** button and removed dummy Blend/sample history cards.
+
+### Build
+- Standalone signed Android `arm64-v8a` release APK (47/47 Rust unit tests passing).
+
 ## [v1.0.5] - 2026-11-24
 
 ### Added & Improved
