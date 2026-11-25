@@ -2,6 +2,16 @@
 
 All notable releases of **Music Player** are documented here.
 
+## [v1.0.8] - 2026-11-25
+
+### Added & Fixed
+- **Zero-Lag Typing & Fast Search/Filter (`fast_input.js`, `SearchCache`, `use_memo`)**: Moved SearchBar debouncing (`~350ms` + instant `Enter` + instant DOM clear button) completely into WebView JS with IME composition protection, eliminated per-keystroke re-renders across `Explore`, `AddSongsSheet`, `Library`, `PlaylistForm`, and `Settings`, added an in-memory 24-entry LRU search cache, minimum 2-character online search gate, and memoized merged results so filter chips (`Semua / Lagu / Artis / Album`) switch in `0ms`.
+- **True Native Android & Web Crossfade**: Implemented overlapping dual-`MediaPlayer` equal-power (`sin`/`cos`) crossfade in Android `PlaybackService` (works even with screen off!), fixed Web `<audio>` fade-in timing to trigger on `playing`, and persisted crossfade/normalize settings on app launch.
+- **In-App Update Notifications & Auto-Installer (U2)**: Automatic GitHub Releases semver checker (`v1.0.8` → detects `v1.0.9+`), Home Bell 🔔 indicator dot + dismissible update banner + `Settings → Pembaruan aplikasi`, with native in-app APK downloader, real-time progress bar, and automatic Android Install dialog (`FileProvider`).
+
+### Build
+- Standalone signed Android `arm64-v8a` release APK (54/54 Rust unit tests passing).
+
 ## [v1.0.7] - 2026-11-25
 
 ### Added & Improved
