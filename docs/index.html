@@ -173,7 +173,7 @@
       <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Logo Music Player" />
       <div class="pill">
         <span class="dot"></span>
-        <span id="release-label">v1.0.8 · Android 7.0+ (arm64-v8a) · ~8.5 MB</span>
+        <span id="release-label">v1.1.0 · Android 7.0+ (arm64-v8a) · ~8.6 MB</span>
       </div>
       <h1>Music Player</h1>
       <p class="subtitle">
@@ -230,13 +230,14 @@
     <section class="whats-new">
       <div class="whats-new__head">
         <h2>Yang Baru di Versi Ini</h2>
-        <span class="whats-new__tag" id="whats-new-tag">v1.0.8</span>
+        <span class="whats-new__tag" id="whats-new-tag">v1.1.0</span>
       </div>
       <ul id="whats-new-list">
-        <li><strong>Optimasi Ketik &amp; Search Bebas Lag:</strong> Semua kotak ketik (Pencarian, Tambah Lagu, Buat Playlist, Settings) kini 100% mulus mengikuti keyboard Android tanpa lag IPC, dilengkapi tombol hapus cepat, debounce otomatis ~350ms + tekan Enter instan, cache pencarian LRU, dan perpindahan filter chip 0ms.</li>
-        <li><strong>Crossfade Native Android &amp; Web Bekerja Penuh:</strong> Transisi lagu <em>equal-power</em> dual-MediaPlayer (lagu lama memudar halus selagi lagu baru masuk) di Android termasuk saat layar mati, plus pengaturan Crossfade tersimpan otomatis saat app dibuka ulang.</li>
-        <li><strong>Notifikasi Update &amp; Auto-Install di Dalam App:</strong> Mulai v1.0.8, ikon Lonceng 🔔 Beranda, banner pengingat tipis, dan menu <em>Settings → Pembaruan aplikasi</em> otomatis mendeteksi versi baru, mengunduh APK langsung di dalam app dengan progress bar, dan memunculkan dialog Install otomatis.</li>
-        <li><strong>Mencakup Seluruh Fitur v1.0.7:</strong> Equalizer 10-Band Native, Animasi 3D Orbit, Smart Radio Universal (<strong>⋮ → Start radio</strong>), Playlist ramah &amp; Disukai, serta Recap Bulanan &amp; Wrapped.</li>
+        <li><strong>Grafis Low / Medium / High ala Game (Optimasi HP Lama):</strong> Pilihan <em>Low (Hemat Ekstrem)</em> mematikan total blur kaca, shadow, glow penuh layar, &amp; animasi berat + mematikan loop 60fps saat pause/idle — bikin HP lawas (Android 9 / spek rendah) jauh lebih enteng &amp; stabil!</li>
+        <li><strong>Equalizer Pro 15-Band ala Poweramp (DSP Nyata):</strong> Upgrade ke 15 band (<code>31 Hz–16 kHz</code>) dengan slider vertikal &amp; kurva interaktif, <strong>Preamp</strong>, <strong>Tone Bass &amp; Treble</strong>, <strong>Limiter anti-pecah</strong>, dan engine native <code>DynamicsProcessing</code> (Android 9+) yang benar-benar mengubah output suara.</li>
+        <li><strong>Shuffle Acak Sejak Lagu Pertama:</strong> Menekan tombol Shuffle di Playlist, Album, maupun halaman Artis kini langsung memulai dari lagu acak — tidak lagi selalu mulai dari lagu urutan #1.</li>
+        <li><strong>Rekomendasi Lagu ala Spotify + Tombol Refresh:</strong> Di bawah playlist kini muncul rekomendasi lagu relevan dengan tombol <strong>+</strong> instan &amp; tombol <strong>Refresh</strong> yang selalu mengganti daftar lagu baru tanpa pengulangan.</li>
+        <li><strong>Halaman Artis, Diskografi Terbaru &amp; Search Ringan:</strong> Album diurutkan dari rilis terbaru → terlama, daftar <em>Lagu Terbaik</em> memprioritaskan rilis terbaru → populer/viral → sepanjang masa, serta Search Artis diranking berdasarkan relevansi dengan muat bertahap (pagination).</li>
       </ul>
     </section>
 
@@ -247,20 +248,20 @@
 
     <section class="grid">
       <div class="card">
-        <h3>Tema Adaptif &amp; Orbit 3D</h3>
-        <p>Warna gradasi &amp; widget otomatis mengikuti cover album, dilengkapi transisi cover cincin 3D <strong>Orbit</strong> atau <strong>Slide</strong>.</p>
+        <h3>Grafis Low / Med / High ala Game</h3>
+        <p>Atur grafis sesuai spek HP — mode <strong>Low (Hemat Ekstrem)</strong> mematikan semua blur/shadow berat biar tetap mulus di Android lawas.</p>
       </div>
       <div class="card">
-        <h3>Smart Radio &amp; Equalizer 10-Band</h3>
-        <p>Klik <strong>⋮ → Start radio</strong> untuk mix &amp; match yang belajar dari skip + atur suara lewat kurva Equalizer 10-band native Android.</p>
+        <h3>Equalizer Pro 15-Band Poweramp</h3>
+        <p>15 frequency band (31 Hz–16 kHz), Preamp, Tone Bass/Treble, Limiter anti-pecah, &amp; DSP native Android <code>DynamicsProcessing</code>.</p>
       </div>
       <div class="card">
-        <h3>Recap Bulanan &amp; Wrapped</h3>
-        <p>Pantau menit dengar, top 5 lagu, artis favorit, dan jam dengar paling aktif dari riwayat aslimu tiap bulan &amp; akhir tahun.</p>
+        <h3>Smart Radio &amp; Rekomendasi Segar</h3>
+        <p>Klik <strong>⋮ → Start radio</strong> untuk mix &amp; match terbaik, plus Rekomendasi Playlist dengan tombol <strong>Refresh</strong> &amp; Shuffle acak sejak lagu #1.</p>
       </div>
       <div class="card">
-        <h3>Cache Offline &amp; Layar Mati Aman</h3>
-        <p>Cache disk per potongan + layanan native MediaSession supaya seek lancar saat sinyal jelek dan musik tetap jalan saat layar mati.</p>
+        <h3>Crossfade, Offline &amp; Auto-Update</h3>
+        <p>Crossfade dual-MediaPlayer, cache disk offline, layar mati aman, dan notifikasi update otomatis langsung di dalam app.</p>
       </div>
     </section>
 

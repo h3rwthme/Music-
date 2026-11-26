@@ -2,6 +2,23 @@
 
 All notable releases of **Music Player** are documented here.
 
+## [v1.1.0] - 2026-11-26
+
+### Added & Improved
+- **Game-Style Graphics Presets (`Low / Medium / High / Auto`) & Low-End Android Performance**:
+  - Replaced continuous 60 fps `requestAnimationFrame` + `querySelectorAll` loop in `player_bridge.js` with an idle-stopping, DOM-cached, tier-throttled progress scheduler (`60 Hz` High, `10 Hz` Medium, `4 Hz` Low; `0%` when paused/backgrounded).
+  - Hardened `Low (Hemat Ekstrem)` mode (`data-quality="lite"`) to eliminate all `backdrop-filter`, `filter: blur`, `box-shadow`, full-screen glows, heavy animations/transitions, and `BlurArt` canvas work + added `content-visibility: auto` across list rows for smooth FPS on older Android 9 devices.
+- **Poweramp-Inspired 15-Band Equalizer Pro (Real DSP Audio Output)**:
+  - Expanded from 10 to **15 bands (`31 Hz–16 kHz`)** with vertical Poweramp-style faders + interactive curve view, **Preamp (`-12..+12 dB`)**, quick **Tone Bass & Treble**, **Limiter**, 10 presets, and seamless migration from old 10-band settings.
+  - Upgraded Android `NativeEq` to **`android.media.audiofx.DynamicsProcessing`** on Android 9+ (API 28+) for genuine 15-band DSP post-EQ + input gain + limiter (with automatic `Equalizer + BassBoost` fallback on Android 7–8).
+- **True Random Shuffle from Track #1**: Fixed Shuffle in `CollectionPage` and `ArtistPage` using SplitMix64 `pick_random_index` so Shuffle starts on a genuinely random song instead of always playing track #1 first.
+- **Spotify-Style Playlist Recommendations + Refresh**: Added a relevant recommendations section beneath playlists with one-tap `+` adding and a **Refresh** button that rotates seeds and avoids repeating shown tracks.
+- **Upgraded Artist Page & Discography**: Added Play / Shuffle / Radio hero actions, **Lagu Terbaik** ranked by priority (Latest releases → Popular/viral → All-time), and **Diskografi** sorted newest → oldest by release year.
+- **Optimized Search Pagination & Artist Relevance**: Ranked artists by query relevance, capped All-tab artist preview to top 4 with "Lihat semua", and added lazy "Muat lebih banyak" pagination for Artists (8/page), Songs (15/page), and Albums (12/page).
+
+### Build
+- Standalone signed Android `arm64-v8a` release APK (59/59 Rust unit tests passing).
+
 ## [v1.0.8] - 2026-11-25
 
 ### Added & Fixed
