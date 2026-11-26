@@ -2,6 +2,18 @@
 
 All notable releases of **Music Player** are documented here.
 
+## [v1.1.2] - 2026-11-26
+
+### Added & Fixed
+- **Smarter Universal Radio & Native Android Queue Sync**:
+  - Syncs cleaned `upcoming` Smart Radio queues directly to Android `PlaybackService` (`player.sync_to_android_service()`) so background/lock-screen playback follows the curated radio mix instead of stale Search/loose lists.
+  - Added `is_radio_misfit` filtering in `smart_queue.rs` to drop unrelated title-echo tracks from random artists as well as karaoke, cover, instrumental, 8D, sped up, slowed, and nightcore versions.
+  - Expanded loose-source detection to cover `Rekomendasi` and `Autoplay • …`, with a `related → recommend` fallback so the queue never runs empty.
+- **Tablet & Wide-Screen Full Player Backdrop**: Unified blurred cover art backdrop (`player-screen__bg`) on tablet/PC full-screen player to match the phone experience.
+
+### Build
+- Standalone signed Android `arm64-v8a` APK (`versionCode=10102`, `v1+v2+v3` signed).
+
 ## [v1.1.1] - 2026-11-26
 
 ### Fixed & Improved
