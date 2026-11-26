@@ -173,7 +173,7 @@
       <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Logo Music Player" />
       <div class="pill">
         <span class="dot"></span>
-        <span id="release-label">v1.1.0 · Android 7.0+ (arm64-v8a) · ~8.6 MB</span>
+        <span id="release-label">v1.1.1 · Android 7.0+ (arm64-v8a) · ~8.6 MB</span>
       </div>
       <h1>Music Player</h1>
       <p class="subtitle">
@@ -230,14 +230,14 @@
     <section class="whats-new">
       <div class="whats-new__head">
         <h2>Yang Baru di Versi Ini</h2>
-        <span class="whats-new__tag" id="whats-new-tag">v1.1.0</span>
+        <span class="whats-new__tag" id="whats-new-tag">v1.1.1</span>
       </div>
       <ul id="whats-new-list">
-        <li><strong>Grafis Low / Medium / High ala Game (Optimasi HP Lama):</strong> Pilihan <em>Low (Hemat Ekstrem)</em> mematikan total blur kaca, shadow, glow penuh layar, &amp; animasi berat + mematikan loop 60fps saat pause/idle — bikin HP lawas (Android 9 / spek rendah) jauh lebih enteng &amp; stabil!</li>
-        <li><strong>Equalizer Pro 15-Band ala Poweramp (DSP Nyata):</strong> Upgrade ke 15 band (<code>31 Hz–16 kHz</code>) dengan slider vertikal &amp; kurva interaktif, <strong>Preamp</strong>, <strong>Tone Bass &amp; Treble</strong>, <strong>Limiter anti-pecah</strong>, dan engine native <code>DynamicsProcessing</code> (Android 9+) yang benar-benar mengubah output suara.</li>
-        <li><strong>Shuffle Acak Sejak Lagu Pertama:</strong> Menekan tombol Shuffle di Playlist, Album, maupun halaman Artis kini langsung memulai dari lagu acak — tidak lagi selalu mulai dari lagu urutan #1.</li>
-        <li><strong>Rekomendasi Lagu ala Spotify + Tombol Refresh:</strong> Di bawah playlist kini muncul rekomendasi lagu relevan dengan tombol <strong>+</strong> instan &amp; tombol <strong>Refresh</strong> yang selalu mengganti daftar lagu baru tanpa pengulangan.</li>
-        <li><strong>Halaman Artis, Diskografi Terbaru &amp; Search Ringan:</strong> Album diurutkan dari rilis terbaru → terlama, daftar <em>Lagu Terbaik</em> memprioritaskan rilis terbaru → populer/viral → sepanjang masa, serta Search Artis diranking berdasarkan relevansi dengan muat bertahap (pagination).</li>
+        <li><strong>Fix Gagal Install &amp; Upgrade (<code>versionCode</code> Naik Otomatis + Signature <code>v1+v2+v3</code>):</strong> Memperbaiki masalah <em>“Aplikasi tidak terpasang”</em> saat menimpa versi lama dengan <code>versionCode</code> monoton (<code>10101</code>), tanda tangan lengkap <code>v1+v2+v3</code>, dan deklarasi <code>&lt;queries&gt;</code> Android 11+.</li>
+        <li><strong>Fix Bug Update dari Dalam App (Anti Macet Setelah Izin):</strong> Setelah mengaktifkan izin <em>“Install aplikasi tidak dikenal”</em> dan kembali ke app, installer Android kini <strong>otomatis lanjut terbuka</strong> tanpa unduh ulang dari awal — dilengkapi cek integritas APK &amp; opsi cadangan <em>Unduh lewat Browser</em>.</li>
+        <li><strong>Mode Hemat Baterai Ekstrem + UI Ringkas v1.0.8:</strong> Dropdown <em>Maksimal / Seimbang / Hemat baterai</em> dengan tombol Simpan; mode <em>Hemat baterai</em> mematikan total blur/kaca/bayangan/glow &amp; background cover agar tetap ringan di HP spek rendah.</li>
+        <li><strong>Equalizer 15-Band Kurva + DSP Stereo Aman Crossfade:</strong> Kurva 15-band (<code>31 Hz–16 kHz</code>) + slider <strong>Preamp, Bass &amp; Treble</strong>, engine stereo <code>DynamicsProcessing</code> (Android 9+), dan pelepasan efek tertunda agar crossfade tidak pernah loncat.</li>
+        <li><strong>Shuffle Acak Penuh, Halaman Artis Terbaru &amp; Rekomendasi Segar:</strong> Shuffle langsung mengacak sejak lagu pembuka tanpa melewati lagu lain, Diskografi urut terbaru → terlama, Search artis lebih relevan dengan pagination, dan Rekomendasi Playlist + Refresh.</li>
       </ul>
     </section>
 
@@ -248,20 +248,20 @@
 
     <section class="grid">
       <div class="card">
-        <h3>Grafis Low / Med / High ala Game</h3>
-        <p>Atur grafis sesuai spek HP — mode <strong>Low (Hemat Ekstrem)</strong> mematikan semua blur/shadow berat biar tetap mulus di Android lawas.</p>
+        <h3>Mode Hemat Ekstrem (HP Lawas Aman)</h3>
+        <p>Pilih <strong>Maksimal / Seimbang / Hemat baterai</strong> di Settings — mode Hemat mematikan blur, shadow &amp; glow berat biar lancar di Android 7–15.</p>
       </div>
       <div class="card">
-        <h3>Equalizer Pro 15-Band Poweramp</h3>
-        <p>15 frequency band (31 Hz–16 kHz), Preamp, Tone Bass/Treble, Limiter anti-pecah, &amp; DSP native Android <code>DynamicsProcessing</code>.</p>
+        <h3>Equalizer 15-Band Kurva Stereo</h3>
+        <p>15 frequency band (31 Hz–16 kHz), Preamp, Bass/Treble, Limiter anti-pecah, &amp; DSP stereo native Android <code>DynamicsProcessing</code>.</p>
       </div>
       <div class="card">
         <h3>Smart Radio &amp; Rekomendasi Segar</h3>
-        <p>Klik <strong>⋮ → Start radio</strong> untuk mix &amp; match terbaik, plus Rekomendasi Playlist dengan tombol <strong>Refresh</strong> &amp; Shuffle acak sejak lagu #1.</p>
+        <p>Klik <strong>⋮ → Start radio</strong> untuk mix &amp; match terbaik, plus Rekomendasi Playlist dengan tombol <strong>Refresh</strong> &amp; Shuffle acak penuh.</p>
       </div>
       <div class="card">
-        <h3>Crossfade, Offline &amp; Auto-Update</h3>
-        <p>Crossfade dual-MediaPlayer, cache disk offline, layar mati aman, dan notifikasi update otomatis langsung di dalam app.</p>
+        <h3>Crossfade, Offline &amp; Auto-Update Lancar</h3>
+        <p>Crossfade dual-MediaPlayer, cache disk offline, tanda tangan <code>v1+v2+v3</code>, dan auto-update di dalam app yang otomatis lanjut pasang setelah izin.</p>
       </div>
     </section>
 

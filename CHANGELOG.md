@@ -2,6 +2,22 @@
 
 All notable releases of **Music Player** are documented here.
 
+## [v1.1.1] - 2026-11-26
+
+### Fixed & Improved
+- **APK Install & Upgrade Reliability (Monotonic `versionCode` + `v1+v2+v3` Signing)**:
+  - Automatically derives monotonic `versionCode` from `Cargo.toml` (`10101` for `v1.1.1`, up from hardcoded `1` on earlier builds) so upgrading over older installs never triggers Android PackageInstaller conflicts.
+  - Signs release APKs with APK Signature Schemes `v1 + v2 + v3` and adds Android 11+ `<queries>` for `application/vnd.android.package-archive`.
+- **In-App Auto-Updater Fix (No More Hang After Granting Permission)**:
+  - Persists downloaded APK in `filesDir/updates/` with ZIP + `PackageManager` integrity verification and exact `Content-Length` check; never deletes and re-downloads an already-downloaded APK.
+  - Added `MainActivity.onResume()` & `onActivityResult()` hooks to automatically launch Android PackageInstaller right after returning from *"Install unknown apps"* settings, using foreground `Activity` context, `ClipData`, and explicit `grantUriPermission` (fixing MIUI / ColorOS / OneUI / Android 10–15 hangs), plus a 1-tap *"Unduh lewat Browser"* fallback.
+- **v1.0.8 Clean UI + v1.1.0 Performance & Audio Polish**:
+  - Restored compact `Settings → Tampilan` dropdown + Save (`Maksimal` / `Seimbang` / `Hemat baterai`), hardened `Hemat baterai` mode without zeroing UI transitions or adding `content-visibility` glitches, kept smooth 60 fps playback progress with low-overhead pause polling, and refined `shuffle_start_order` so every track stays queued.
+  - Upgraded 15-band `NativeEq` to stereo 2-channel `DynamicsProcessing` with 13s delayed release of the previous session's audio FX so crossfade stays seamless, paired with the curve EQ + `DbSlider` (Preamp / Bass / Treble).
+
+### Build
+- Standalone signed Android `arm64-v8a` APK (`versionCode=10101`, `v1+v2+v3` signed, 62/62 Rust unit tests passing).
+
 ## [v1.1.0] - 2026-11-26
 
 ### Added & Improved

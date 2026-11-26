@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/Rust-2024-000000?style=for-the-badge&logo=rust&logoColor=white" alt="Rust" />
     <img src="https://img.shields.io/badge/Dioxus-0.7-2563eb?style=for-the-badge" alt="Dioxus 0.7" />
     <img src="https://img.shields.io/badge/Android-7.0%2B%20(arm64)-3ddc84?style=for-the-badge&logo=android&logoColor=black" alt="Android arm64" />
-    <img src="https://img.shields.io/badge/APK%20Size-~8.3%20MB-18181b?style=for-the-badge" alt="APK Size" />
+    <img src="https://img.shields.io/badge/APK%20Size-~8.6%20MB-18181b?style=for-the-badge" alt="APK Size" />
   </p>
 
   <p>
