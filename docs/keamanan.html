@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keamanan &amp; VirusTotal — Music Player</title>
+  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topnav">
+    <nav class="topnav__inner" aria-label="Navigasi utama">
+      <a class="topnav__brand" href="index.html">
+        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
+        <span>Music Player</span>
+      </a>
+      <div class="topnav__links">
+        <a href="index.html">Beranda</a>
+        <a href="cara-install.html">Cara Install</a>
+        <a href="keamanan.html" class="is-active">Keamanan</a>
+        <a href="fitur.html">Fitur</a>
+      </div>
+      <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="page-head">
+      <h1>Keamanan &amp; Privasi</h1>
+      <p>Karena dibagikan lewat GitHub (di luar Play Store), Android memang menampilkan peringatan standar untuk APK mandiri — itu normal, bukan virus.</p>
+    </div>
+
+    <section class="panel panel--safe">
+      <div class="panel__head">
+        <h2 class="panel__title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span>Aman &amp; Bebas Virus</span>
+        </h2>
+        <span class="tag">0 / 67 Deteksi · VirusTotal</span>
+      </div>
+
+      <div class="card-grid">
+        <div class="mini-card">
+          <strong>Tanpa izin sensitif</strong>
+          Tidak pernah minta akses Kontak, SMS, Lokasi, Kamera, Mikrofon, atau file pribadi di HP.
+        </div>
+        <div class="mini-card">
+          <strong>Tanpa login &amp; pelacak</strong>
+          Tidak butuh akun atau password, tanpa iklan, dan tidak mengirim data perangkat ke server asing.
+        </div>
+        <div class="mini-card">
+          <strong>Hanya izin pemutar musik</strong>
+          Cuma memakai internet, audio, notifikasi kontrol lagu, dan layanan lokal di HP sendiri (<code>127.0.0.1</code>).
+        </div>
+        <div class="mini-card">
+          <strong>Lolos 67/67 antivirus</strong>
+          Sudah di-scan langsung di VirusTotal dengan hasil 0 deteksi malware, dan bisa dicek ulang kapan saja.
+        </div>
+      </div>
+
+      <a class="proof-img" id="vt-proof-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/virustotal.png" alt="Hasil scan VirusTotal Music Player APK: 0 dari 67 antivirus mendeteksi ancaman" />
+      </a>
+
+      <div class="hash-bar">
+        <div>
+          <span>SHA-256 (<span id="hash-ver">v1.1.4</span>): </span>
+          <code id="apk-sha256">969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46</code>
+        </div>
+        <div class="hash-bar__actions">
+          <button type="button" class="chip-btn" id="copy-sha256">Salin</button>
+          <a class="chip-btn" id="vt-btn-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">Lihat Hasil VirusTotal</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-bar">
+      <div>
+        <strong>Sudah yakin aman?</strong>
+        <p>Ikuti 3 langkah singkat supaya pemasangan di HP langsung lancar.</p>
+      </div>
+      <div class="actions" style="margin-top: 0;">
+        <a class="btn btn-secondary" href="cara-install.html">Cara Install</a>
+        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh APK</a>
+      </div>
+    </div>
+
+    <footer>
+      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
+      <a href="https://github.com/h3rwthme/Music-/releases">Semua Rilis</a>
+    </footer>
+  </main>
+
+  <script>
+    const copyBtn = document.getElementById("copy-sha256");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", () => {
+        const hash = document.getElementById("apk-sha256")?.textContent?.trim() || "";
+        if (!hash || !navigator.clipboard) return;
+        navigator.clipboard.writeText(hash).then(() => {
+          copyBtn.textContent = "Tersalin";
+          setTimeout(() => { copyBtn.textContent = "Salin"; }, 1800);
+        }).catch(() => {});
+      });
+    }
+    fetch("latest.json?t=" + Math.floor(Date.now() / 60000))
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        if (!j || !j.tag) return;
+        const hv = document.getElementById("hash-ver");
+        if (hv) hv.textContent = j.tag;
+        if (j.sha256) {
+          document.getElementById("apk-sha256").textContent = j.sha256;
+          const vt = `https://www.virustotal.com/gui/file/${j.sha256}`;
+          document.getElementById("vt-proof-link").href = vt;
+          document.getElementById("vt-btn-link").href = vt;
+        }
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

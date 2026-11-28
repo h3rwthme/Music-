@@ -1,0 +1,327 @@
+:root {
+  --bg: #09090b;
+  --surface: #141418;
+  --surface-hi: #1b1b22;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #fafafa;
+  --muted: #a1a1aa;
+  --accent: #1db954;
+  --accent-hover: #22d363;
+  --accent-soft: rgba(29, 185, 84, 0.14);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(29, 185, 84, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.14), transparent 40%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Navbar atas */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(9, 9, 11, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+.topnav__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.topnav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.topnav__brand img { width: 28px; height: 28px; border-radius: 8px; display: block; }
+.topnav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.topnav__links::-webkit-scrollbar { display: none; }
+.topnav__links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.topnav__links a:hover { background: rgba(255, 255, 255, 0.07); color: var(--text); }
+.topnav__links a.is-active {
+  background: rgba(255, 255, 255, 0.11);
+  color: var(--text);
+}
+.topnav__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #052e16;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+.topnav__cta:hover { background: var(--accent-hover); }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 36px 20px 72px; }
+.hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.page-head { margin-bottom: 24px; }
+.page-head h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -0.03em; margin-bottom: 6px; }
+.page-head p { color: var(--muted); font-size: 0.96rem; max-width: 680px; }
+
+.logo {
+  width: 82px; height: 82px; border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+}
+h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; }
+.subtitle { color: var(--muted); max-width: 600px; font-size: 1.02rem; }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--border);
+  font-size: 0.85rem; color: var(--muted);
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 6px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 13px 26px; border-radius: 999px; font-weight: 700; font-size: 0.96rem;
+  text-decoration: none; transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--accent); color: #052e16; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--surface-hi); }
+.meta { font-size: 0.85rem; color: var(--muted); }
+
+/* Quick link chips di Beranda */
+.quick-links {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.quick-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: #e4e4e7;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.quick-link:hover { background: var(--surface-hi); border-color: rgba(255, 255, 255, 0.18); }
+.quick-link--safe { border-color: rgba(29, 185, 84, 0.35); color: #86efac; }
+
+/* Spotlight Smart Radio */
+.radio-spotlight {
+  margin-top: 34px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(29, 185, 84, 0.18), transparent 48%),
+    var(--surface);
+  border: 1px solid rgba(52, 211, 153, 0.34);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+.spot-head { margin-bottom: 12px; }
+.spot-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 13px; border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #4ade80; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.spot-title {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 800; letter-spacing: -0.025em; margin-bottom: 8px;
+}
+.spot-desc { color: #d4d4d8; font-size: 0.95rem; max-width: 760px; margin-bottom: 18px; }
+.spot-desc strong { color: #6ee7b7; }
+.spot-img {
+  width: 100%; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+}
+.spot-img img { width: 100%; display: block; }
+.spot-steps {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.spot-step {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex; align-items: flex-start; gap: 11px;
+}
+.spot-num {
+  width: 28px; height: 28px; border-radius: 999px;
+  background: var(--accent); color: #052e16;
+  font-weight: 800; font-size: 0.86rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.spot-step h3 { font-size: 0.93rem; margin-bottom: 3px; color: #fff; }
+.spot-step p { font-size: 0.84rem; color: var(--muted); line-height: 1.45; }
+
+/* Box umum (Terbaru, Keamanan, Cara Install) */
+.panel {
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px 24px;
+}
+.panel--safe { border-color: rgba(29, 185, 84, 0.3); }
+.panel__head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.panel__title {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 1.05rem; font-weight: 700;
+}
+.panel__title svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+.tag {
+  font-size: 0.76rem; padding: 3px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: #4ade80; font-weight: 700;
+}
+.panel ul { padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
+.panel li { margin-bottom: 6px; }
+.panel li strong { color: #f4f4f5; }
+.lead { font-size: 0.92rem; color: var(--muted); margin-bottom: 14px; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.mini-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.mini-card strong { display: block; color: var(--text); margin-bottom: 3px; font-size: 0.92rem; }
+
+.proof-img {
+  display: block;
+  margin-top: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0d1117;
+}
+.proof-img img { width: 100%; display: block; }
+
+.hash-bar {
+  margin-top: 14px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; flex-wrap: wrap;
+  font-size: 0.8rem; color: var(--muted);
+}
+.hash-bar code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: #d4d4d8; word-break: break-all; font-size: 0.76rem;
+}
+.hash-bar__actions { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.chip-btn {
+  padding: 6px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+  background: var(--surface-hi); color: var(--text); border: 1px solid var(--border);
+  cursor: pointer; text-decoration: none;
+}
+.chip-btn:hover { background: rgba(255, 255, 255, 0.12); }
+
+.banner {
+  width: 100%; border-radius: 20px;
+  border: 1px solid var(--border); overflow: hidden;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.5);
+}
+.banner img { width: 100%; display: block; }
+
+.grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px 20px;
+}
+.card h3 { font-size: 0.98rem; margin-bottom: 6px; }
+.card p { font-size: 0.88rem; color: var(--muted); }
+
+.cta-bar {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.cta-bar p { color: var(--muted); font-size: 0.9rem; }
+.cta-bar strong { color: var(--text); display: block; font-size: 0.98rem; }
+
+footer { text-align: center; margin-top: 52px; color: var(--muted); font-size: 0.85rem; }
+footer a { color: var(--text); text-decoration: none; }
+
+@media (max-width: 640px) {
+  .topnav__inner { padding: 8px 12px; gap: 8px; }
+  .topnav__brand span { display: none; }
+  .topnav__links a { padding: 5px 9px; font-size: 0.8rem; }
+  .topnav__cta { padding: 6px 11px; font-size: 0.78rem; }
+  .wrap { padding: 24px 14px 56px; }
+  .radio-spotlight, .panel { padding: 18px; border-radius: 18px; }
+}

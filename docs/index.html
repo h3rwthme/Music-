@@ -5,377 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Music Player — Unduh APK Android Terbaru</title>
   <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
-  <style>
-    :root {
-      --bg: #09090b;
-      --surface: #141418;
-      --surface-hi: #1b1b22;
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #fafafa;
-      --muted: #a1a1aa;
-      --accent: #1db954;
-      --accent-hover: #22d363;
-      --accent-soft: rgba(29, 185, 84, 0.14);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(29, 185, 84, 0.18), transparent 45%),
-        radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.14), transparent 40%),
-        var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-
-    /* Navbar atas (sticky, rapi di HP & desktop) */
-    .topnav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(9, 9, 11, 0.82);
-      border-bottom: 1px solid var(--border);
-    }
-    .topnav__inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-    .topnav__brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: -0.02em;
-      flex-shrink: 0;
-    }
-    .topnav__brand img { width: 28px; height: 28px; border-radius: 8px; display: block; }
-    .topnav__links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .topnav__links::-webkit-scrollbar { display: none; }
-    .topnav__links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.84rem;
-      font-weight: 600;
-      padding: 6px 11px;
-      border-radius: 999px;
-      white-space: nowrap;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-    .topnav__links a:hover { background: rgba(255, 255, 255, 0.07); color: var(--text); }
-    .topnav__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #052e16;
-      font-weight: 700;
-      font-size: 0.82rem;
-      text-decoration: none;
-      flex-shrink: 0;
-      transition: background 0.15s ease;
-    }
-    .topnav__cta:hover { background: var(--accent-hover); }
-
-    section[id] { scroll-margin-top: 76px; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 36px 20px 76px; }
-    .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .logo {
-      width: 84px; height: 84px; border-radius: 22px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-    }
-    h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); letter-spacing: -0.03em; }
-    .subtitle { color: var(--muted); max-width: 620px; font-size: 1.05rem; }
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 999px;
-      background: var(--surface); border: 1px solid var(--border);
-      font-size: 0.85rem; color: var(--muted);
-    }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 1rem;
-      text-decoration: none; transition: transform 0.15s ease, background 0.15s ease;
-    }
-    .btn:active { transform: scale(0.98); }
-    .btn-primary { background: var(--accent); color: #052e16; }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
-    .btn-secondary:hover { background: var(--surface-hi); }
-    .meta { font-size: 0.86rem; color: var(--muted); }
-
-    /* Kartu Keamanan & Verifikasi APK */
-    .trust-box {
-      margin-top: 28px;
-      background: var(--surface);
-      border: 1px solid rgba(29, 185, 84, 0.28);
-      border-radius: 20px;
-      padding: 20px 22px;
-    }
-    .trust-head {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; flex-wrap: wrap; margin-bottom: 8px;
-    }
-    .trust-title {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-size: 1.05rem; font-weight: 700; color: var(--text);
-    }
-    .trust-title svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
-    .trust-tag {
-      font-size: 0.76rem; padding: 3px 10px; border-radius: 999px;
-      background: var(--accent-soft); color: #4ade80; font-weight: 700;
-    }
-    .trust-lead {
-      font-size: 0.9rem; color: var(--muted); margin-bottom: 14px;
-    }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 10px;
-    }
-    .trust-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 0.86rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-    .trust-item strong { display: block; color: var(--text); margin-bottom: 2px; font-size: 0.9rem; }
-    .trust-hash {
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; flex-wrap: wrap;
-      font-size: 0.8rem; color: var(--muted);
-    }
-    .trust-hash code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      color: #d4d4d8; word-break: break-all; font-size: 0.76rem;
-    }
-    .trust-hash__actions { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    .trust-btn {
-      padding: 5px 11px; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
-      background: var(--surface-hi); color: var(--text); border: 1px solid var(--border);
-      cursor: pointer; text-decoration: none;
-    }
-    .trust-btn:hover { background: rgba(255, 255, 255, 0.12); }
-    .trust-proof {
-      display: block;
-      margin-top: 14px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #0d1117;
-    }
-    .trust-proof img { width: 100%; display: block; }
-
-    /* Panduan Cara Install */
-    .install-box {
-      margin-top: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px 22px;
-    }
-    .install-head {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 10px; flex-wrap: wrap; margin-bottom: 14px;
-    }
-    .install-head h2 { font-size: 1.05rem; font-weight: 700; }
-    .install-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 12px;
-    }
-    .install-step {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      display: flex; align-items: flex-start; gap: 11px;
-    }
-    .install-step h3 { font-size: 0.92rem; margin-bottom: 3px; color: var(--text); }
-    .install-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.45; }
-    .install-step strong { color: #f4f4f5; }
-    .install-tips {
-      margin-top: 12px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 10px;
-    }
-    .install-tip {
-      padding: 11px 14px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--border);
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-    .install-tip strong { color: var(--text); }
-
-    /* Spotlight paling besar: Smart Radio & Cara Mix & Match Terbaik */
-    .radio-spotlight {
-      margin-top: 40px;
-      background:
-        radial-gradient(circle at 85% 15%, rgba(29, 185, 84, 0.18), transparent 48%),
-        var(--surface);
-      border: 1px solid rgba(52, 211, 153, 0.34);
-      border-radius: 26px;
-      padding: 28px;
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
-    }
-    .spot-head {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-      gap: 12px; margin-bottom: 14px;
-    }
-    .spot-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(52, 211, 153, 0.35);
-      color: #4ade80; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .spot-title {
-      font-size: clamp(1.35rem, 3vw, 1.9rem);
-      font-weight: 800; letter-spacing: -0.025em;
-      margin-bottom: 8px;
-    }
-    .spot-desc {
-      color: #d4d4d8; font-size: 0.98rem; max-width: 780px; margin-bottom: 20px;
-    }
-    .spot-desc strong { color: #6ee7b7; }
-    .spot-img {
-      width: 100%; border-radius: 18px; overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.65);
-    }
-    .spot-img img { width: 100%; display: block; }
-    .spot-steps {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    .spot-step {
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px 18px;
-      display: flex; align-items: flex-start; gap: 12px;
-    }
-    .spot-num {
-      width: 30px; height: 30px; border-radius: 999px;
-      background: var(--accent); color: #052e16;
-      font-weight: 800; font-size: 0.9rem;
-      display: inline-flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 2px;
-    }
-    .spot-step h3 { font-size: 0.95rem; margin-bottom: 4px; color: #fff; }
-    .spot-step p { font-size: 0.86rem; color: var(--muted); line-height: 1.45; }
-
-    .whats-new {
-      margin-top: 32px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px 24px;
-    }
-    .whats-new__head {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
-    }
-    .whats-new__head h2 { font-size: 1.05rem; font-weight: 700; }
-    .whats-new__tag {
-      font-size: 0.78rem; padding: 3px 10px; border-radius: 999px;
-      background: var(--accent-soft); color: #4ade80; font-weight: 700;
-    }
-    .whats-new ul { padding-left: 18px; color: var(--muted); font-size: 0.93rem; }
-    .whats-new li { margin-bottom: 6px; }
-    .whats-new li strong { color: #f4f4f5; }
-
-    .section-label {
-      margin-top: 36px; margin-bottom: 14px;
-      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em;
-    }
-    .banner {
-      width: 100%; border-radius: 20px;
-      border: 1px solid var(--border); overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-    }
-    .banner img { width: 100%; display: block; }
-
-    .grid {
-      margin-top: 28px; display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;
-    }
-    .card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 20px;
-    }
-    .card h3 { font-size: 1rem; margin-bottom: 6px; }
-    .card p { font-size: 0.9rem; color: var(--muted); }
-    footer { text-align: center; margin-top: 56px; color: var(--muted); font-size: 0.86rem; }
-    footer a { color: var(--text); text-decoration: none; }
-
-    @media (max-width: 640px) {
-      .topnav__inner { padding: 8px 12px; gap: 8px; }
-      .topnav__brand span { display: none; }
-      .topnav__links a { padding: 5px 9px; font-size: 0.8rem; }
-      .topnav__cta { padding: 6px 11px; font-size: 0.78rem; }
-      .wrap { padding: 24px 14px 56px; }
-      .radio-spotlight { padding: 18px; border-radius: 20px; }
-      .trust-box, .install-box { padding: 16px; border-radius: 18px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="topnav">
     <nav class="topnav__inner" aria-label="Navigasi utama">
-      <a class="topnav__brand" href="#atas">
+      <a class="topnav__brand" href="index.html">
         <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
         <span>Music Player</span>
       </a>
       <div class="topnav__links">
-        <a href="#keamanan">Keamanan</a>
-        <a href="#cara-install">Cara Install</a>
-        <a href="#smart-radio">Smart Radio</a>
-        <a href="#terbaru">Terbaru</a>
-        <a href="#fitur">Fitur</a>
+        <a href="index.html" class="is-active">Beranda</a>
+        <a href="cara-install.html">Cara Install</a>
+        <a href="keamanan.html">Keamanan</a>
+        <a href="fitur.html">Fitur</a>
       </div>
       <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <section class="hero" id="atas">
+    <section class="hero">
       <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Logo Music Player" />
       <div class="pill">
         <span class="dot"></span>
@@ -383,7 +33,7 @@
       </div>
       <h1>Music Player</h1>
       <p class="subtitle">
-        Pemutar musik Android ringan dengan tema warna adaptif, dibangun pakai Rust (Dioxus 0.7) dan layanan audio native Kotlin.
+        Pemutar musik Android ringan dengan Smart Radio, Crossfade halus, Equalizer 15-Band, dan import playlist.
       </p>
       <div class="actions">
         <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">
@@ -393,104 +43,20 @@
           Lihat di GitHub
         </a>
       </div>
-      <p class="meta" id="release-date">Langsung timpa install di atas versi lama — playlist, foto cover, riwayat &amp; cache offline tetap aman.</p>
-    </section>
-
-    <!-- KEAMANAN & VERIFIKASI APK -->
-    <section class="trust-box" id="keamanan">
-      <div class="trust-head">
-        <h2 class="trust-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="m9 12 2 2 4-4"/>
-          </svg>
-          <span>Aman &amp; Bebas Virus</span>
-        </h2>
-        <span class="trust-tag">0 / 67 Deteksi · VirusTotal</span>
-      </div>
-      <p class="trust-lead">
-        Karena dibagikan langsung lewat GitHub (di luar Play Store), Android memang memunculkan peringatan standar saat install APK mandiri — itu normal, bukan virus.
-      </p>
-      <div class="trust-grid">
-        <div class="trust-item">
-          <strong>Tanpa izin sensitif</strong>
-          Tidak pernah minta akses Kontak, SMS, Lokasi, Kamera, Mikrofon, atau file pribadi di HP.
-        </div>
-        <div class="trust-item">
-          <strong>Tanpa login &amp; pelacak</strong>
-          Tidak butuh akun atau password, tanpa iklan, dan tidak mengirim data perangkat ke server asing.
-        </div>
-        <div class="trust-item">
-          <strong>Hanya izin pemutar musik</strong>
-          Cuma memakai internet, audio, notifikasi kontrol lagu, dan layanan lokal di HP sendiri (<code>127.0.0.1</code>).
-        </div>
-        <div class="trust-item">
-          <strong>Lolos 67/67 antivirus</strong>
-          Sudah di-scan langsung di VirusTotal dengan hasil 0 deteksi malware, dan bisa dicek ulang kapan saja.
-        </div>
-      </div>
-      <a class="trust-proof" id="vt-proof-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/virustotal.png" alt="Hasil scan VirusTotal Music Player APK: 0 dari 67 antivirus mendeteksi ancaman" />
-      </a>
-      <div class="trust-hash">
-        <div>
-          <span>SHA-256 (<span id="hash-ver">v1.1.4</span>): </span>
-          <code id="apk-sha256">969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46</code>
-        </div>
-        <div class="trust-hash__actions">
-          <button type="button" class="trust-btn" id="copy-sha256">Salin</button>
-          <a class="trust-btn" id="vt-btn-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">Lihat Hasil VirusTotal</a>
-        </div>
+      <p class="meta" id="release-date">Timpa langsung di atas versi lama — playlist, riwayat &amp; cache offline tetap aman.</p>
+      <div class="quick-links">
+        <a class="quick-link quick-link--safe" href="keamanan.html">✓ 0/67 VirusTotal · Cek Bukti Aman →</a>
+        <a class="quick-link" href="cara-install.html">Panduan Play Protect &amp; Cara Install →</a>
       </div>
     </section>
 
-    <!-- PANDUAN CARA INSTALL APK -->
-    <section class="install-box" id="cara-install">
-      <div class="install-head">
-        <h2>Cara Install APK (Lewati Play Protect)</h2>
-        <span class="whats-new__tag">3 Langkah</span>
-      </div>
-      <div class="install-steps">
-        <div class="install-step">
-          <span class="spot-num">1</span>
-          <div>
-            <h3>Unduh &amp; Buka File APK</h3>
-            <p>Klik <strong>Unduh APK Terbaru</strong> di atas, lalu buka file <code>music-player.apk</code> dari notifikasi unduhan atau folder <strong>Download</strong>.</p>
-          </div>
-        </div>
-        <div class="install-step">
-          <span class="spot-num">2</span>
-          <div>
-            <h3>Izinkan Sumber Tidak Dikenal</h3>
-            <p>Jika diminta izin <strong>“Install aplikasi tidak dikenal”</strong>, aktifkan tombol izin untuk browser atau File Manager yang kamu pakai, lalu kembali.</p>
-          </div>
-        </div>
-        <div class="install-step">
-          <span class="spot-num">3</span>
-          <div>
-            <h3>Jika Muncul Play Protect</h3>
-            <p>Jangan klik <em>OK</em> (itu membatalkan install). Klik <strong>Selengkapnya / More details</strong> lalu pilih <strong>Tetap instal / Install anyway</strong>.</p>
-          </div>
-        </div>
-      </div>
-      <div class="install-tips">
-        <div class="install-tip">
-          <strong>Khusus Samsung (One UI 6+):</strong> Kalau install langsung diblokir, matikan sementara <strong>Pemblokir Otomatis (Auto Blocker)</strong> di <em>Pengaturan → Keamanan dan privasi → Pemblokir Otomatis</em>, lalu install lagi.
-        </div>
-        <div class="install-tip">
-          <strong>Muncul “Aplikasi tidak terpasang”?</strong> Pastikan HP memakai <strong>Android 7.0+ (64-bit / arm64-v8a)</strong> dan penyimpanan cukup. HP 32-bit lama memang belum didukung.
-        </div>
-      </div>
-    </section>
-
-    <!-- SPOTLIGHT UTAMA & PALING BESAR: SMART RADIO MIX & MATCH -->
-    <section class="radio-spotlight" id="smart-radio">
+    <section class="radio-spotlight">
       <div class="spot-head">
-        <span class="spot-badge">Wajib Coba · Tips Mix &amp; Match Terbaik</span>
+        <span class="spot-badge">Tips Mix &amp; Match Terbaik</span>
       </div>
-      <h2 class="spot-title">Mau Mix &amp; Match Lagu Paling Enak? Klik Titik Tiga (⋮) → Pencet “Start radio”</h2>
+      <h2 class="spot-title">Klik Titik Tiga (⋮) → Pilih “Start radio”</h2>
       <p class="spot-desc">
-        Supaya antrean lagu otomatis nyambung sesuai selera dan nggak acak-acakan, cukup <strong>klik ikon titik tiga (⋮)</strong> di samping lagu favoritmu lalu pilih <strong>Start radio</strong>. Mesin <strong>Smart Radio</strong> bakal meracik alur lagu seirama tanpa lagu dobel!
+        Supaya antrean lagu otomatis nyambung sesuai selera, ketuk ikon <strong>titik tiga (⋮)</strong> di samping lagu favoritmu lalu pilih <strong>Start radio</strong>.
       </p>
       <div class="spot-img">
         <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/smart-radio.png" alt="Panduan Smart Radio: Klik titik tiga lalu pilih Start radio" />
@@ -500,120 +66,59 @@
           <span class="spot-num">1</span>
           <div>
             <h3>Klik Titik Tiga (⋮)</h3>
-            <p>Ketuk ikon <strong>⋮</strong> di kanan lagu favoritmu (atau tekan tahan lagunya) dari Beranda, Pencarian, Album, atau Playlist.</p>
+            <p>Ketuk ikon <strong>⋮</strong> di kanan lagu favoritmu (atau tekan tahan lagunya).</p>
           </div>
         </div>
         <div class="spot-step">
           <span class="spot-num">2</span>
           <div>
-            <h3>Pencet “Start radio”</h3>
-            <p>Pilih menu <strong>Start radio</strong> di panel bawah supaya mesin Smart Radio aktif meracik antrean otomatis.</p>
+            <h3>Pilih “Start radio”</h3>
+            <p>Ketuk <strong>Start radio</strong> di panel bawah untuk mengaktifkan mix &amp; match otomatis.</p>
           </div>
         </div>
         <div class="spot-step">
           <span class="spot-num">3</span>
           <div>
-            <h3>Alur Mix &amp; Match Mulus</h3>
-            <p>Mulai 10–12 lagu artis utama dulu, geser halus ke blok 2–3 lagu per band mirip, selipan artis utama tiap ±6 lagu, dan 0 lagu dobel.</p>
+            <h3>Antrean Seirama</h3>
+            <p>10–12 lagu artis utama, lanjut blok 2–3 lagu band mirip, tanpa lagu dobel.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="whats-new" id="terbaru">
-      <div class="whats-new__head">
-        <h2>Yang Baru di Versi Ini</h2>
-        <span class="whats-new__tag" id="whats-new-tag">v1.1.4</span>
+    <section class="panel">
+      <div class="panel__head">
+        <h2 class="panel__title">Yang Baru</h2>
+        <span class="tag" id="whats-new-tag">v1.1.4</span>
       </div>
-      <ul id="whats-new-list">
-        <li><strong>Cover Album Asli di Hasil Import Playlist:</strong> Setiap lagu yang diimpor dari Spotify, Apple Music, maupun YouTube (hingga 120 lagu sekaligus) kini menampilkan cover album asli masing-masing lagu, bukan foto cover playlist.</li>
-        <li><strong>Notifikasi Update Selalu Muncul Cepat:</strong> Pengecekan update kini lewat manifest CDN <code>latest.json</code> (bebas batas rate-limit jaringan seluler), cache singkat 10 menit, dan otomatis cek ulang saat aplikasi dibuka kembali.</li>
-        <li><strong>Crossfade Halus, Mix &amp; Match Pas Genre &amp; Cover YouTube:</strong> Membawa seluruh penyempurnaan Crossfade pre-buffer ala Apple Music, Smart Radio bebas loncat bahasa/genre, dan pencarian versi coveran YouTube.</li>
+      <ul>
+        <li><strong>Cover Album Asli Hasil Import:</strong> Import playlist Spotify, Apple Music, dan YouTube kini menampilkan cover album asli masing-masing lagu.</li>
+        <li><strong>Notifikasi Update Cepat:</strong> Cek update langsung via CDN tanpa batas limit jaringan &amp; cek ulang otomatis saat app dibuka lagi.</li>
+        <li><strong>Crossfade, Smart Radio &amp; Cover YouTube:</strong> Transisi lagu lebih halus tanpa jeda, antrean pas genre, dan versi coveran YouTube muncul di pencarian.</li>
       </ul>
-    </section>
-
-    <h2 class="section-label">Tampilan Aplikasi</h2>
-    <div class="banner">
-      <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/banner.png" alt="Pratinjau Tampilan Music Player" />
-    </div>
-
-    <section class="grid" id="fitur">
-      <div class="card">
-        <h3>Mode Hemat Ekstrem (HP Lawas Aman)</h3>
-        <p>Pilih <strong>Maksimal / Seimbang / Hemat baterai</strong> di Settings — mode Hemat mematikan blur, shadow &amp; glow berat biar lancar di Android 7–15.</p>
-      </div>
-      <div class="card">
-        <h3>Equalizer 15-Band Kurva Stereo</h3>
-        <p>15 frequency band (31 Hz–16 kHz), Preamp, Bass/Treble, Limiter anti-pecah, &amp; DSP stereo native Android <code>DynamicsProcessing</code>.</p>
-      </div>
-      <div class="card">
-        <h3>Smart Radio &amp; Rekomendasi Segar</h3>
-        <p>Klik <strong>⋮ → Start radio</strong> untuk mix &amp; match terbaik, plus Rekomendasi Playlist dengan tombol <strong>Refresh</strong> &amp; Shuffle acak penuh.</p>
-      </div>
-      <div class="card">
-        <h3>Crossfade, Offline &amp; Auto-Update Lancar</h3>
-        <p>Crossfade dual-MediaPlayer, cache disk offline, tanda tangan <code>v1+v2+v3</code>, dan auto-update di dalam app yang otomatis lanjut pasang setelah izin.</p>
-      </div>
     </section>
 
     <footer>
       Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
-      <a href="https://github.com/h3rwthme/Music-/releases">Rilis Terbaru</a>
+      <a href="https://github.com/h3rwthme/Music-/releases">Semua Rilis</a>
     </footer>
   </main>
 
   <script>
-    const copyBtn = document.getElementById("copy-sha256");
-    if (copyBtn) {
-      copyBtn.addEventListener("click", () => {
-        const hash = document.getElementById("apk-sha256")?.textContent?.trim() || "";
-        if (!hash || !navigator.clipboard) return;
-        navigator.clipboard.writeText(hash).then(() => {
-          copyBtn.textContent = "Tersalin";
-          setTimeout(() => { copyBtn.textContent = "Salin"; }, 1800);
-        }).catch(() => {});
-      });
-    }
-
-    function applyRelease(tag, sizeBytes, publishedAt, sha256) {
-      if (!tag) return;
-      const mb = sizeBytes > 0 ? ` · ${(sizeBytes / 1048576).toFixed(1)} MB` : "";
-      document.getElementById("release-label").textContent = `${tag} · Android arm64-v8a${mb}`;
-      document.getElementById("whats-new-tag").textContent = tag;
-      const hv = document.getElementById("hash-ver");
-      if (hv) hv.textContent = tag;
-      if (sha256) {
-        const el = document.getElementById("apk-sha256");
-        if (el) el.textContent = sha256;
-        const vtUrl = `https://www.virustotal.com/gui/file/${sha256}`;
-        const pLink = document.getElementById("vt-proof-link");
-        const bLink = document.getElementById("vt-btn-link");
-        if (pLink) pLink.href = vtUrl;
-        if (bLink) bLink.href = vtUrl;
-      }
-      if (publishedAt) {
-        const dt = new Date(publishedAt).toLocaleDateString("id-ID", {
-          year: "numeric", month: "short", day: "numeric"
-        });
-        document.getElementById("release-date").textContent =
-          `Diperbarui ${dt} · Langsung timpa install di atas versi lama — playlist & cache offline tetap aman.`;
-      }
-    }
-
     fetch("latest.json?t=" + Math.floor(Date.now() / 60000))
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => {
-        if (j && j.tag) {
-          applyRelease(j.tag, Number(j.size_bytes || 0), j.published_at, j.sha256);
-          return;
-        }
-        return fetch("https://api.github.com/repos/h3rwthme/Music-/releases/latest")
-          .then((r) => (r.ok ? r.json() : null))
-          .then((rel) => {
-            if (!rel || !rel.tag_name) return;
-            const apk = (rel.assets || []).find((a) => a.name.endsWith(".apk"));
-            applyRelease(rel.tag_name, Number((apk && apk.size) || 0), rel.published_at, "");
+        if (!j || !j.tag) return;
+        const mb = j.size_bytes > 0 ? ` · ${(j.size_bytes / 1048576).toFixed(1)} MB` : "";
+        document.getElementById("release-label").textContent = `${j.tag} · Android arm64-v8a${mb}`;
+        document.getElementById("whats-new-tag").textContent = j.tag;
+        if (j.published_at) {
+          const dt = new Date(j.published_at).toLocaleDateString("id-ID", {
+            year: "numeric", month: "short", day: "numeric"
           });
+          document.getElementById("release-date").textContent =
+            `Diperbarui ${dt} · Timpa langsung di atas versi lama — playlist & cache offline tetap aman.`;
+        }
       })
       .catch(() => {});
   </script>
