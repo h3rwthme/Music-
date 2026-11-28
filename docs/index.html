@@ -56,6 +56,67 @@
     .btn-secondary:hover { background: var(--surface-hi); }
     .meta { font-size: 0.86rem; color: var(--muted); }
 
+    /* Kartu Keamanan & Verifikasi APK */
+    .trust-box {
+      margin-top: 28px;
+      background: var(--surface);
+      border: 1px solid rgba(29, 185, 84, 0.28);
+      border-radius: 20px;
+      padding: 20px 22px;
+    }
+    .trust-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap; margin-bottom: 8px;
+    }
+    .trust-title {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 1.05rem; font-weight: 700; color: var(--text);
+    }
+    .trust-title svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+    .trust-tag {
+      font-size: 0.76rem; padding: 3px 10px; border-radius: 999px;
+      background: var(--accent-soft); color: #4ade80; font-weight: 700;
+    }
+    .trust-lead {
+      font-size: 0.9rem; color: var(--muted); margin-bottom: 14px;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .trust-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .trust-item strong { display: block; color: var(--text); margin-bottom: 2px; font-size: 0.9rem; }
+    .trust-hash {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap;
+      font-size: 0.8rem; color: var(--muted);
+    }
+    .trust-hash code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: #d4d4d8; word-break: break-all; font-size: 0.76rem;
+    }
+    .trust-hash__actions { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .trust-btn {
+      padding: 5px 11px; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+      background: var(--surface-hi); color: var(--text); border: 1px solid var(--border);
+      cursor: pointer; text-decoration: none;
+    }
+    .trust-btn:hover { background: rgba(255, 255, 255, 0.12); }
+
     /* Spotlight paling besar: Smart Radio & Cara Mix & Match Terbaik */
     .radio-spotlight {
       margin-top: 40px;
@@ -190,6 +251,51 @@
       <p class="meta" id="release-date">Langsung timpa install di atas versi lama — playlist, foto cover, riwayat &amp; cache offline tetap aman.</p>
     </section>
 
+    <!-- KEAMANAN & VERIFIKASI APK -->
+    <section class="trust-box" id="keamanan">
+      <div class="trust-head">
+        <h2 class="trust-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span>Aman &amp; Bebas Virus</span>
+        </h2>
+        <span class="trust-tag">Sudah Dicek Keamanan</span>
+      </div>
+      <p class="trust-lead">
+        Karena dibagikan langsung lewat GitHub (di luar Play Store), Android memang memunculkan peringatan standar saat install APK mandiri — itu normal, bukan virus.
+      </p>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <strong>Tanpa izin sensitif</strong>
+          Tidak pernah minta akses Kontak, SMS, Lokasi, Kamera, Mikrofon, atau file pribadi di HP.
+        </div>
+        <div class="trust-item">
+          <strong>Tanpa login &amp; pelacak</strong>
+          Tidak butuh akun atau password, tanpa iklan, dan tidak mengirim data perangkat ke server asing.
+        </div>
+        <div class="trust-item">
+          <strong>Hanya izin pemutar musik</strong>
+          Cuma memakai internet, audio, notifikasi kontrol lagu, dan layanan lokal di HP sendiri (<code>127.0.0.1</code>).
+        </div>
+        <div class="trust-item">
+          <strong>Bisa dicek sendiri</strong>
+          Silakan cek keaslian file lewat SHA-256 di bawah atau scan langsung APK-nya di VirusTotal sebelum install.
+        </div>
+      </div>
+      <div class="trust-hash">
+        <div>
+          <span>SHA-256 (<span id="hash-ver">v1.1.4</span>): </span>
+          <code id="apk-sha256">969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46</code>
+        </div>
+        <div class="trust-hash__actions">
+          <button type="button" class="trust-btn" id="copy-sha256">Salin</button>
+          <a class="trust-btn" href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">Scan di VirusTotal</a>
+        </div>
+      </div>
+    </section>
+
     <!-- SPOTLIGHT UTAMA & PALING BESAR: SMART RADIO MIX & MATCH -->
     <section class="radio-spotlight" id="smart-radio">
       <div class="spot-head">
@@ -270,22 +376,52 @@
   </main>
 
   <script>
-    fetch("https://api.github.com/repos/h3rwthme/Music-/releases/latest")
+    const copyBtn = document.getElementById("copy-sha256");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", () => {
+        const hash = document.getElementById("apk-sha256")?.textContent?.trim() || "";
+        if (!hash || !navigator.clipboard) return;
+        navigator.clipboard.writeText(hash).then(() => {
+          copyBtn.textContent = "Tersalin";
+          setTimeout(() => { copyBtn.textContent = "Salin"; }, 1800);
+        }).catch(() => {});
+      });
+    }
+
+    function applyRelease(tag, sizeBytes, publishedAt, sha256) {
+      if (!tag) return;
+      const mb = sizeBytes > 0 ? ` · ${(sizeBytes / 1048576).toFixed(1)} MB` : "";
+      document.getElementById("release-label").textContent = `${tag} · Android arm64-v8a${mb}`;
+      document.getElementById("whats-new-tag").textContent = tag;
+      const hv = document.getElementById("hash-ver");
+      if (hv) hv.textContent = tag;
+      if (sha256) {
+        const el = document.getElementById("apk-sha256");
+        if (el) el.textContent = sha256;
+      }
+      if (publishedAt) {
+        const dt = new Date(publishedAt).toLocaleDateString("id-ID", {
+          year: "numeric", month: "short", day: "numeric"
+        });
+        document.getElementById("release-date").textContent =
+          `Diperbarui ${dt} · Langsung timpa install di atas versi lama — playlist & cache offline tetap aman.`;
+      }
+    }
+
+    fetch("latest.json?t=" + Math.floor(Date.now() / 60000))
       .then((r) => (r.ok ? r.json() : null))
-      .then((rel) => {
-        if (!rel || !rel.tag_name) return;
-        const apk = (rel.assets || []).find((a) => a.name.endsWith(".apk"));
-        const mb = apk ? ` · ${(apk.size / 1048576).toFixed(1)} MB` : "";
-        document.getElementById("release-label").textContent =
-          `${rel.tag_name} · Android arm64-v8a${mb}`;
-        document.getElementById("whats-new-tag").textContent = rel.tag_name;
-        if (rel.published_at) {
-          const dt = new Date(rel.published_at).toLocaleDateString("id-ID", {
-            year: "numeric", month: "short", day: "numeric"
-          });
-          document.getElementById("release-date").textContent =
-            `Diperbarui ${dt} · Langsung timpa install di atas versi lama — playlist & cache offline tetap aman.`;
+      .then((j) => {
+        if (j && j.tag) {
+          applyRelease(j.tag, Number(j.size_bytes || 0), j.published_at, j.sha256);
+          return;
         }
+        return fetch("https://api.github.com/repos/h3rwthme/Music-/releases/latest")
+          .then((r) => (r.ok ? r.json() : null))
+          .then((rel) => {
+            if (!rel || !rel.tag_name) return;
+            const apk = (rel.assets || []).find((a) => a.name.endsWith(".apk"));
+            applyRelease(rel.tag_name, Number((apk && apk.size) || 0), rel.published_at, "");
+          });
       })
       .catch(() => {});
   </script>
