@@ -18,6 +18,7 @@
       --accent-soft: rgba(29, 185, 84, 0.14);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
       background:
@@ -28,7 +29,75 @@
       min-height: 100vh;
       line-height: 1.6;
     }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 20px 76px; }
+
+    /* Navbar atas (sticky, rapi di HP & desktop) */
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(9, 9, 11, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+    .topnav__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .topnav__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .topnav__brand img { width: 28px; height: 28px; border-radius: 8px; display: block; }
+    .topnav__links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .topnav__links::-webkit-scrollbar { display: none; }
+    .topnav__links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .topnav__links a:hover { background: rgba(255, 255, 255, 0.07); color: var(--text); }
+    .topnav__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #052e16;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background 0.15s ease;
+    }
+    .topnav__cta:hover { background: var(--accent-hover); }
+
+    section[id] { scroll-margin-top: 76px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 36px 20px 76px; }
     .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .logo {
       width: 84px; height: 84px; border-radius: 22px;
@@ -125,6 +194,51 @@
       background: #0d1117;
     }
     .trust-proof img { width: 100%; display: block; }
+
+    /* Panduan Cara Install */
+    .install-box {
+      margin-top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px 22px;
+    }
+    .install-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap; margin-bottom: 14px;
+    }
+    .install-head h2 { font-size: 1.05rem; font-weight: 700; }
+    .install-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+    .install-step {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex; align-items: flex-start; gap: 11px;
+    }
+    .install-step h3 { font-size: 0.92rem; margin-bottom: 3px; color: var(--text); }
+    .install-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.45; }
+    .install-step strong { color: #f4f4f5; }
+    .install-tips {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+    }
+    .install-tip {
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .install-tip strong { color: var(--text); }
 
     /* Spotlight paling besar: Smart Radio & Cara Mix & Match Terbaik */
     .radio-spotlight {
@@ -232,14 +346,36 @@
     footer a { color: var(--text); text-decoration: none; }
 
     @media (max-width: 640px) {
-      .wrap { padding: 32px 14px 56px; }
+      .topnav__inner { padding: 8px 12px; gap: 8px; }
+      .topnav__brand span { display: none; }
+      .topnav__links a { padding: 5px 9px; font-size: 0.8rem; }
+      .topnav__cta { padding: 6px 11px; font-size: 0.78rem; }
+      .wrap { padding: 24px 14px 56px; }
       .radio-spotlight { padding: 18px; border-radius: 20px; }
+      .trust-box, .install-box { padding: 16px; border-radius: 18px; }
     }
   </style>
 </head>
 <body>
+  <header class="topnav">
+    <nav class="topnav__inner" aria-label="Navigasi utama">
+      <a class="topnav__brand" href="#atas">
+        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
+        <span>Music Player</span>
+      </a>
+      <div class="topnav__links">
+        <a href="#keamanan">Keamanan</a>
+        <a href="#cara-install">Cara Install</a>
+        <a href="#smart-radio">Smart Radio</a>
+        <a href="#terbaru">Terbaru</a>
+        <a href="#fitur">Fitur</a>
+      </div>
+      <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
+    </nav>
+  </header>
+
   <main class="wrap">
-    <section class="hero">
+    <section class="hero" id="atas">
       <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Logo Music Player" />
       <div class="pill">
         <span class="dot"></span>
@@ -308,6 +444,45 @@
       </div>
     </section>
 
+    <!-- PANDUAN CARA INSTALL APK -->
+    <section class="install-box" id="cara-install">
+      <div class="install-head">
+        <h2>Cara Install APK (Lewati Play Protect)</h2>
+        <span class="whats-new__tag">3 Langkah</span>
+      </div>
+      <div class="install-steps">
+        <div class="install-step">
+          <span class="spot-num">1</span>
+          <div>
+            <h3>Unduh &amp; Buka File APK</h3>
+            <p>Klik <strong>Unduh APK Terbaru</strong> di atas, lalu buka file <code>music-player.apk</code> dari notifikasi unduhan atau folder <strong>Download</strong>.</p>
+          </div>
+        </div>
+        <div class="install-step">
+          <span class="spot-num">2</span>
+          <div>
+            <h3>Izinkan Sumber Tidak Dikenal</h3>
+            <p>Jika diminta izin <strong>“Install aplikasi tidak dikenal”</strong>, aktifkan tombol izin untuk browser atau File Manager yang kamu pakai, lalu kembali.</p>
+          </div>
+        </div>
+        <div class="install-step">
+          <span class="spot-num">3</span>
+          <div>
+            <h3>Jika Muncul Play Protect</h3>
+            <p>Jangan klik <em>OK</em> (itu membatalkan install). Klik <strong>Selengkapnya / More details</strong> lalu pilih <strong>Tetap instal / Install anyway</strong>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="install-tips">
+        <div class="install-tip">
+          <strong>Khusus Samsung (One UI 6+):</strong> Kalau install langsung diblokir, matikan sementara <strong>Pemblokir Otomatis (Auto Blocker)</strong> di <em>Pengaturan → Keamanan dan privasi → Pemblokir Otomatis</em>, lalu install lagi.
+        </div>
+        <div class="install-tip">
+          <strong>Muncul “Aplikasi tidak terpasang”?</strong> Pastikan HP memakai <strong>Android 7.0+ (64-bit / arm64-v8a)</strong> dan penyimpanan cukup. HP 32-bit lama memang belum didukung.
+        </div>
+      </div>
+    </section>
+
     <!-- SPOTLIGHT UTAMA & PALING BESAR: SMART RADIO MIX & MATCH -->
     <section class="radio-spotlight" id="smart-radio">
       <div class="spot-head">
@@ -345,7 +520,7 @@
       </div>
     </section>
 
-    <section class="whats-new">
+    <section class="whats-new" id="terbaru">
       <div class="whats-new__head">
         <h2>Yang Baru di Versi Ini</h2>
         <span class="whats-new__tag" id="whats-new-tag">v1.1.4</span>
@@ -362,7 +537,7 @@
       <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/banner.png" alt="Pratinjau Tampilan Music Player" />
     </div>
 
-    <section class="grid">
+    <section class="grid" id="fitur">
       <div class="card">
         <h3>Mode Hemat Ekstrem (HP Lawas Aman)</h3>
         <p>Pilih <strong>Maksimal / Seimbang / Hemat baterai</strong> di Settings — mode Hemat mematikan blur, shadow &amp; glow berat biar lancar di Android 7–15.</p>
