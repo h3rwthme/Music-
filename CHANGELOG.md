@@ -2,6 +2,15 @@
 
 All notable releases of **Music Player** are documented here.
 
+## [v1.1.4] - 2026-11-28
+
+### Fixed & Improved
+- **Per-Track Album Art on Playlist Import**: Fixed Spotify & Apple Music playlist imports using the playlist's cover photo on every track — now matches up to 120 tracks in parallel (8 workers) and sets each song's own real album artwork from YouTube Music.
+- **Reliable & Fast In-App Update Notifications**: Switched update checks to static CDN `docs/latest.json` (eliminating GitHub API 60/hr IP/CGNAT rate limits) with GitHub API fallback, lowered cache TTL from 6 hours to 10 minutes, and added `visibilitychange` + `online` auto-recheck in `UpdateChecker` so devices keeping the app alive in background always get update alerts.
+
+### Build
+- Standalone signed Android `arm64-v8a` APK (`versionCode=10104`, `v1+v2+v3` signed).
+
 ## [v1.1.3] - 2026-11-28
 
 ### Added & Fixed
