@@ -1,7 +1,7 @@
 <div align="center">
   <img src="assets/icon.svg" alt="Music Player Logo" width="88" height="88" />
   <h1>Music Player</h1>
-  <p><strong>A lightweight, adaptive-color Android music player built with Rust, Dioxus 0.7, and native Kotlin audio services.</strong></p>
+  <p><strong>A lightweight Android music player with a clean single-tone Onyx theme, built with Rust, Dioxus 0.7, and native Kotlin audio services.</strong></p>
 
   <p>
     <a href="https://github.com/h3rwthme/Music-/releases/latest">
@@ -46,7 +46,7 @@
 
 ## Overview
 
-**Music Player** is a personal cross-platform audio player engineered for speed, low footprint (`~8.3 MB` release APK), and editorial-grade visual polish. Its core UI and state engine are written in **Rust (Dioxus 0.7)** and bridged cleanly to a **native Android Kotlin foreground playback service**, giving uninterrupted background audio, lock-screen media controls, adaptive home-screen widgets, and smooth offline caching even on unstable mobile connections.
+**Music Player** is a personal cross-platform audio player engineered for speed, low footprint (`~8.3 MB` release APK), and editorial-grade visual polish. Its core UI and state engine are written in **Rust (Dioxus 0.7)** and bridged cleanly to a **native Android Kotlin foreground playback service**, giving uninterrupted background audio, lock-screen media controls, a home-screen widget, and smooth offline caching even on unstable mobile connections.
 
 > **Repository Scope:** This repository serves as the public **portfolio showcase and binary release distribution hub** (`README`, visual showcase, changelog, and signed APK releases). Application source code is maintained privately.
 
@@ -54,25 +54,18 @@
 
 ## Visual Showcase
 
-### Core Experience
-| Adaptive Color Player | Personalized Home Feed | Instant Search & Explore |
+| Onyx Player | Import Playlists | 15-Band Equalizer & Crossfade |
 | :---: | :---: | :---: |
-| <img src="screenshots/player-adaptive.png" alt="Adaptive Color Now Playing" width="100%" /> | <img src="screenshots/home-feed.png" alt="Home Feed" width="100%" /> | <img src="screenshots/explore-search.png" alt="Search and Explore" width="100%" /> |
-| Real-time cover art color extraction dynamically themes gradients, controls, and ambient glow. | Quick-access grid, personalized artist mixes, recently played, and custom playlists. | Top-result cards, category filters (`Songs`, `Artists`, `Albums`), and search history. |
-
-### Signature Details
-| Cover Swipe & Page-Flip | Word-by-Word Synced Lyrics | Adaptive Home Screen Widget |
-| :---: | :---: | :---: |
-| <img src="screenshots/cover-gesture.png" alt="Cover Gestures" width="240" /> | <img src="screenshots/lyrics-sync.png" alt="Synced Lyrics" width="240" /> | <img src="screenshots/android-widget.png" alt="Android Home Widget" width="240" /> |
-| GPU-accelerated pointer drag with blurred neighbor previews (`Slide` or 3D `Book` mode). | Supports plain text, line-synced `LRC`, word-synced `Enhanced LRC`, and `TTML` duet cues. | Native Android `AppWidgetProvider` that mirrors the active album palette and playback controls. |
+| <img src="screenshots/feature-player-onyx.png" alt="Onyx Now Playing" width="100%" /> | <img src="screenshots/feature-import.png" alt="Import playlists from YouTube, Spotify and Apple Music" width="100%" /> | <img src="screenshots/feature-eq-crossfade.png" alt="15-band equalizer and crossfade" width="100%" /> |
+| One neutral black & white palette with a blurred cover backdrop, live lyrics pill and quick controls. | Paste a public YouTube, Spotify or Apple Music playlist link to import it with original covers. | Drag the 15-band curve, adjust Preamp / Bass / Treble, and enjoy gapless equal-power crossfades. |
 
 ---
 
 ## Key Features
 
-- **Adaptive Album-Driven Theme** — Extracts the dominant color from active cover art with luminance/saturation clamping for readability, smoothly transitioning the entire UI (`~600ms`) while falling back to crisp monochrome accents when idle.
+- **Single-Tone Onyx Theme** — One consistent neutral black & white palette across the app and widget, with a lightweight blurred cover backdrop on the player.
 - **Smart Radio Universal & Poweramp-Style 15-Band Native Equalizer** — Deterministic, unit-tested queue planner (`smart_queue`) with skip-aware learning and Spotify-style playlist recommendations + Refresh — paired with a **15-band (`31 Hz–16 kHz`) native Android `DynamicsProcessing` Equalizer**, Preamp, Tone Bass/Treble, and anti-clipping Limiter.
-- **Game-Style Graphics Presets (`Low / Medium / High`), Orbit 3D, Recap & Auto-Updater** — Dedicated `Low (Hemat Ekstrem)` zero-blur performance mode for older Android devices, 3D Orbit cover ring, true random Shuffle from track #1, newest-first Artist discography, and in-app auto-download updates.
+- **Display Modes (`Maksimal / Seimbang / Hemat baterai`), Orbit 3D, Recap & Auto-Updater** — Dedicated `Hemat baterai` zero-blur performance mode for older Android devices, 3D Orbit cover ring, true random Shuffle from track #1, newest-first Artist discography, and in-app auto-download updates.
 - **Resilient Offline Disk Cache** — Chunked HTTP Range (`206 Partial Content`) disk cache keeps scrubbing responsive on flaky networks and allows pinned tracks to play completely offline without mid-track stalls.
 - **Native Background, Back Navigation & Lock-Screen Playback** — Dedicated Android `PlaybackService` with `MediaSessionCompat`, native audio queue mirroring, auto-advance while screen is off or gaming, audio focus handling, headphone-disconnect pause, and full Android Back gesture/button routing (`Sheet → History → Preserved Search → Home → Background Minimize`).
 - **Custom Playlists with Cover Photos** — Create, edit, and organize personal playlists with custom uploaded cover artwork, persisted locally across updates.
@@ -86,7 +79,7 @@
 ```mermaid
 flowchart LR
     subgraph UI["Rust / Dioxus 0.7 UI Layer"]
-        A["Adaptive Theme & Views<br/>(Home, Explore, Player, Lyrics)"]
+        A["Onyx Theme & Views<br/>(Home, Explore, Player, Lyrics)"]
         B["Smart Radio Engine<br/>(Pure Queue Planner + Refiller)"]
     end
 
@@ -96,7 +89,7 @@ flowchart LR
 
     subgraph Android["Native Kotlin Runtime"]
         D["PlaybackService + MediaSession<br/>(Lock Screen, Background, Queue)"]
-        E["NowPlayingWidget<br/>(Adaptive Home Widget)"]
+        E["NowPlayingWidget<br/>(Home Screen Widget)"]
         F["Embedded Audio Proxy &<br/>Chunked Offline Disk Cache"]
     end
 

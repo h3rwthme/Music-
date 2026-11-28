@@ -432,3 +432,7 @@ a.figure[href*="virustotal"]::after { content: "Buka di VirusTotal"; }
 @media (min-width: 721px) {
   .gallery--tall { max-width: 640px; }
 }
+.btn { white-space: nowrap; }
+@media (max-width: 720px) {
+  .cta-bar .btn { padding: 12px 14px; font-size: 0.92rem; }
+}
