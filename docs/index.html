@@ -116,6 +116,15 @@
       cursor: pointer; text-decoration: none;
     }
     .trust-btn:hover { background: rgba(255, 255, 255, 0.12); }
+    .trust-proof {
+      display: block;
+      margin-top: 14px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #0d1117;
+    }
+    .trust-proof img { width: 100%; display: block; }
 
     /* Spotlight paling besar: Smart Radio & Cara Mix & Match Terbaik */
     .radio-spotlight {
@@ -261,7 +270,7 @@
           </svg>
           <span>Aman &amp; Bebas Virus</span>
         </h2>
-        <span class="trust-tag">Sudah Dicek Keamanan</span>
+        <span class="trust-tag">0 / 67 Deteksi · VirusTotal</span>
       </div>
       <p class="trust-lead">
         Karena dibagikan langsung lewat GitHub (di luar Play Store), Android memang memunculkan peringatan standar saat install APK mandiri — itu normal, bukan virus.
@@ -280,10 +289,13 @@
           Cuma memakai internet, audio, notifikasi kontrol lagu, dan layanan lokal di HP sendiri (<code>127.0.0.1</code>).
         </div>
         <div class="trust-item">
-          <strong>Bisa dicek sendiri</strong>
-          Silakan cek keaslian file lewat SHA-256 di bawah atau scan langsung APK-nya di VirusTotal sebelum install.
+          <strong>Lolos 67/67 antivirus</strong>
+          Sudah di-scan langsung di VirusTotal dengan hasil 0 deteksi malware, dan bisa dicek ulang kapan saja.
         </div>
       </div>
+      <a class="trust-proof" id="vt-proof-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/virustotal.png" alt="Hasil scan VirusTotal Music Player APK: 0 dari 67 antivirus mendeteksi ancaman" />
+      </a>
       <div class="trust-hash">
         <div>
           <span>SHA-256 (<span id="hash-ver">v1.1.4</span>): </span>
@@ -291,7 +303,7 @@
         </div>
         <div class="trust-hash__actions">
           <button type="button" class="trust-btn" id="copy-sha256">Salin</button>
-          <a class="trust-btn" href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener">Scan di VirusTotal</a>
+          <a class="trust-btn" id="vt-btn-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">Lihat Hasil VirusTotal</a>
         </div>
       </div>
     </section>
@@ -398,6 +410,11 @@
       if (sha256) {
         const el = document.getElementById("apk-sha256");
         if (el) el.textContent = sha256;
+        const vtUrl = `https://www.virustotal.com/gui/file/${sha256}`;
+        const pLink = document.getElementById("vt-proof-link");
+        const bLink = document.getElementById("vt-btn-link");
+        if (pLink) pLink.href = vtUrl;
+        if (bLink) bLink.href = vtUrl;
       }
       if (publishedAt) {
         const dt = new Date(publishedAt).toLocaleDateString("id-ID", {
