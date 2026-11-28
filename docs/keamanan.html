@@ -3,129 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keamanan &amp; VirusTotal — Music Player</title>
-  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="description" content="Hasil scan VirusTotal, izin aplikasi, dan SHA-256 APK Music Player." />
+  <title>Keamanan — Music Player</title>
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg" />
+  <link rel="stylesheet" href="style.css?v=4" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="speculationrules">{"prerender":[{"source":"list","urls":["index.html","cara-install.html","fitur.html"],"eagerness":"moderate"}]}</script>
 </head>
 <body>
   <header class="topnav" id="topnav">
     <nav class="topnav__inner" aria-label="Navigasi utama">
       <a class="topnav__brand" href="index.html">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
+        <img src="img/icon.svg" width="28" height="28" alt="" />
         <span>Music Player</span>
       </a>
       <div class="topnav__links" id="nav-menu">
         <a href="index.html">Beranda</a>
         <a href="cara-install.html">Cara Install</a>
-        <a href="keamanan.html" class="is-active">Keamanan</a>
+        <a href="keamanan.html" aria-current="page">Keamanan</a>
         <a href="fitur.html">Fitur</a>
       </div>
       <div class="topnav__right">
-        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
-        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu" onclick="const h=document.getElementById('topnav');const o=h.classList.toggle('is-open');this.setAttribute('aria-expanded',o);">
-          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-        </button>
+        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>Unduh</span></a>
+        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu"><svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
       </div>
     </nav>
   </header>
+  <div class="nav-scrim" aria-hidden="true"></div>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <div class="page-head">
-      <h1>Keamanan &amp; Privasi</h1>
-      <p>Karena dibagikan lewat GitHub (di luar Play Store), Android memang menampilkan peringatan standar untuk APK mandiri — itu normal, bukan virus.</p>
+      <h1>Keamanan &amp; privasi</h1>
+      <p>Peringatan Android untuk APK di luar Play Store itu standar, bukan tanda virus.</p>
     </div>
 
-    <section class="panel panel--safe">
+    <section class="panel reveal">
       <div class="panel__head">
-        <h2 class="panel__title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="m9 12 2 2 4-4"/>
-          </svg>
-          <span>Aman &amp; Bebas Virus</span>
-        </h2>
-        <span class="tag">0 / 67 Deteksi · VirusTotal</span>
+        <h2 class="panel__title"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span>Bebas virus</span></h2>
+        <span class="tag tag--ok">0 / 67 deteksi</span>
       </div>
-
-      <div class="card-grid">
-        <div class="mini-card">
-          <strong>Tanpa izin sensitif</strong>
-          Tidak pernah minta akses Kontak, SMS, Lokasi, Kamera, Mikrofon, atau file pribadi di HP.
-        </div>
-        <div class="mini-card">
-          <strong>Tanpa login &amp; pelacak</strong>
-          Tidak butuh akun atau password, tanpa iklan, dan tidak mengirim data perangkat ke server asing.
-        </div>
-        <div class="mini-card">
-          <strong>Hanya izin pemutar musik</strong>
-          Cuma memakai internet, audio, notifikasi kontrol lagu, dan layanan lokal di HP sendiri (<code>127.0.0.1</code>).
-        </div>
-        <div class="mini-card">
-          <strong>Lolos 67/67 antivirus</strong>
-          Sudah di-scan langsung di VirusTotal dengan hasil 0 deteksi malware, dan bisa dicek ulang kapan saja.
-        </div>
-      </div>
-
-      <a class="proof-img" id="vt-proof-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/virustotal.png" alt="Hasil scan VirusTotal Music Player APK: 0 dari 67 antivirus mendeteksi ancaman" />
-      </a>
-
+      <a class="figure" id="vt-proof-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener"><img src="img/virustotal.webp" width="1024" height="576" alt="Hasil VirusTotal: 0 dari 67 antivirus mendeteksi ancaman" decoding="async" loading="lazy" /></a>
       <div class="hash-bar">
-        <div>
-          <span>SHA-256 (<span id="hash-ver">v1.1.4</span>): </span>
-          <code id="apk-sha256">969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46</code>
-        </div>
+        <div><span>SHA-256 (<span id="hash-ver">v1.1.4</span>): </span><code id="apk-sha256">969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46</code></div>
         <div class="hash-bar__actions">
           <button type="button" class="chip-btn" id="copy-sha256">Salin</button>
-          <a class="chip-btn" id="vt-btn-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">Lihat Hasil VirusTotal</a>
+          <a class="chip-btn" id="vt-btn-link" href="https://www.virustotal.com/gui/file/969f0d89d2f17d3eb24546161322ad197931de9903fc2e98cf31071f7d5d6b46" target="_blank" rel="noopener">Buka VirusTotal</a>
         </div>
       </div>
     </section>
 
-    <div class="cta-bar">
-      <div>
-        <strong>Sudah yakin aman?</strong>
-        <p>Ikuti 3 langkah singkat supaya pemasangan di HP langsung lancar.</p>
+    <section class="panel reveal">
+      <div class="panel__head"><h2 class="panel__title">Yang dipakai aplikasi</h2></div>
+      <div class="tips">
+        <div class="tip"><strong>Hanya izin pemutar musik</strong>Internet, audio, notifikasi kontrol lagu.</div>
+        <div class="tip"><strong>Tanpa izin sensitif</strong>Tidak meminta kontak, SMS, lokasi, kamera, mikrofon, atau file.</div>
+        <div class="tip"><strong>Tanpa akun &amp; pelacak</strong>Tidak ada iklan dan tidak mengirim data perangkat ke server asing.</div>
       </div>
-      <div class="actions" style="margin-top: 0;">
-        <a class="btn btn-secondary" href="cara-install.html">Cara Install</a>
-        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh APK</a>
+    </section>
+    <div class="cta-bar reveal">
+      <div><strong>Sudah yakin?</strong><p class="lead" style="margin:2px 0 0">Pasang dalam 3 langkah.</p></div>
+      <div class="actions">
+        <a class="btn btn-secondary" href="cara-install.html">Cara install</a>
+        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Unduh APK</a>
       </div>
     </div>
 
     <footer>
-      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
-      <a href="https://github.com/h3rwthme/Music-/releases">Semua Rilis</a>
+      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> · <a href="https://github.com/h3rwthme/Music-/releases">Semua rilis</a>
     </footer>
   </main>
-
-  <script>
-    const copyBtn = document.getElementById("copy-sha256");
-    if (copyBtn) {
-      copyBtn.addEventListener("click", () => {
-        const hash = document.getElementById("apk-sha256")?.textContent?.trim() || "";
-        if (!hash || !navigator.clipboard) return;
-        navigator.clipboard.writeText(hash).then(() => {
-          copyBtn.textContent = "Tersalin";
-          setTimeout(() => { copyBtn.textContent = "Salin"; }, 1800);
-        }).catch(() => {});
-      });
-    }
-    fetch("latest.json?t=" + Math.floor(Date.now() / 60000))
-      .then((r) => (r.ok ? r.json() : null))
-      .then((j) => {
-        if (!j || !j.tag) return;
-        const hv = document.getElementById("hash-ver");
-        if (hv) hv.textContent = j.tag;
-        if (j.sha256) {
-          document.getElementById("apk-sha256").textContent = j.sha256;
-          const vt = `https://www.virustotal.com/gui/file/${j.sha256}`;
-          document.getElementById("vt-proof-link").href = vt;
-          document.getElementById("vt-btn-link").href = vt;
-        }
-      })
-      .catch(() => {});
-  </script>
+  <script src="site.js?v=4" defer></script>
 </body>
 </html>

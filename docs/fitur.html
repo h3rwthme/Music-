@@ -3,157 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fitur &amp; Tampilan — Music Player</title>
-  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="description" content="Fitur Music Player: radio otomatis, equalizer 15 band, crossfade, import playlist, lirik sinkron." />
+  <title>Fitur — Music Player</title>
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg" />
+  <link rel="stylesheet" href="style.css?v=4" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="speculationrules">{"prerender":[{"source":"list","urls":["index.html","cara-install.html","keamanan.html"],"eagerness":"moderate"}]}</script>
 </head>
 <body>
   <header class="topnav" id="topnav">
     <nav class="topnav__inner" aria-label="Navigasi utama">
       <a class="topnav__brand" href="index.html">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
+        <img src="img/icon.svg" width="28" height="28" alt="" />
         <span>Music Player</span>
       </a>
       <div class="topnav__links" id="nav-menu">
         <a href="index.html">Beranda</a>
         <a href="cara-install.html">Cara Install</a>
         <a href="keamanan.html">Keamanan</a>
-        <a href="fitur.html" class="is-active">Fitur</a>
+        <a href="fitur.html" aria-current="page">Fitur</a>
       </div>
       <div class="topnav__right">
-        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
-        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu" onclick="const h=document.getElementById('topnav');const o=h.classList.toggle('is-open');this.setAttribute('aria-expanded',o);">
-          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-        </button>
+        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>Unduh</span></a>
+        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu"><svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
       </div>
     </nav>
   </header>
+  <div class="nav-scrim" aria-hidden="true"></div>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <div class="page-head">
-      <h1>Fitur &amp; Tampilan</h1>
-      <p>Ringan di Android 7–15, tampilan rapi untuk HP maupun tablet, lengkap dengan kontrol audio native.</p>
+      <h1>Fitur</h1>
+      <p>Semua yang kamu butuhkan buat dengerin musik, tetap ringan di HP lawas.</p>
     </div>
 
-    <div class="banner">
-      <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/banner.png" alt="Pratinjau Tampilan Music Player" />
-    </div>
+    <div class="figure reveal"><img src="img/banner.webp" width="1280" height="720" alt="Pratinjau tampilan Music Player" decoding="async" fetchpriority="high" /></div>
 
-    <section class="panel">
-      <div class="panel__head">
-        <h2 class="panel__title">Import Playlist YouTube, Spotify &amp; Apple Music</h2>
-        <span class="tag">Baru</span>
+    <h2 class="section-title reveal">Tampilan</h2>
+      <div class="gallery gallery--wide">
+        <figure class="shot reveal"><img src="img/feature-player-onyx.webp" width="960" height="600" alt="Player" decoding="async" loading="lazy" /><figcaption><strong>Player</strong>Gelap, bersih, lirik live</figcaption></figure>
+        <figure class="shot reveal"><img src="img/home-feed.webp" width="960" height="540" alt="Beranda" decoding="async" loading="lazy" /><figcaption><strong>Beranda</strong>Playlist, riwayat & mix favorit</figcaption></figure>
+        <figure class="shot reveal"><img src="img/explore-search.webp" width="960" height="540" alt="Pencarian" decoding="async" loading="lazy" /><figcaption><strong>Pencarian</strong>Lagu, artis, album & versi cover</figcaption></figure>
       </div>
-      <p class="lead">Tarik semua lagu dari link playlist publik langsung jadi playlist di HP lengkap dengan cover album masing-masing lagu.</p>
-      <div class="proof-img" style="margin-top: 0;">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/feature-import.png" alt="Panduan Import Playlist YouTube, Spotify, dan Apple Music di Music Player" />
+      <div class="gallery gallery--tall">
+        <figure class="shot reveal"><img src="img/lyrics-sync.webp" width="540" height="960" alt="Lirik sinkron" decoding="async" loading="lazy" /><figcaption><strong>Lirik sinkron</strong>Ikut waktu lagu per kata</figcaption></figure>
+        <figure class="shot reveal"><img src="img/cover-gesture.webp" width="540" height="960" alt="Geser cover" decoding="async" loading="lazy" /><figcaption><strong>Geser cover</strong>Ganti lagu dengan animasi Slide/Orbit</figcaption></figure>
+        <figure class="shot reveal"><img src="img/android-widget.webp" width="540" height="960" alt="Widget" decoding="async" loading="lazy" /><figcaption><strong>Widget</strong>Kontrol dari layar utama</figcaption></figure>
       </div>
+
+    <h2 class="section-title reveal">Import playlist</h2>
+    <section class="panel reveal">
+      <p class="lead">Tempel link playlist publik YouTube, Spotify, atau Apple Music — jadi playlist lengkap dengan cover-nya.</p>
+      <a class="figure" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/feature-import.png" target="_blank" rel="noopener"><img src="img/feature-import.webp" width="1200" height="540" alt="Panduan import playlist YouTube, Spotify, dan Apple Music" decoding="async" loading="lazy" /></a>
     </section>
 
-    <section class="panel">
-      <div class="panel__head">
-        <h2 class="panel__title">Equalizer 15-Band, Crossfade &amp; Mode Hemat</h2>
-        <span class="tag">Audio &amp; Performa</span>
-      </div>
-      <p class="lead">Atur suara lebih detail lewat kurva 15-band stereo, transisi crossfade tanpa jeda ala Apple Music, dan mode Hemat baterai untuk HP lawas.</p>
-      <div class="proof-img" style="margin-top: 0;">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/feature-eq-crossfade.png" alt="Equalizer 15-Band Stereo, Crossfade Halus, dan Mode Hemat Baterai" />
-      </div>
+    <h2 class="section-title reveal">Suara</h2>
+    <section class="panel reveal">
+      <p class="lead">Equalizer 15 band dengan preamp, bass &amp; treble, plus crossfade halus antar lagu.</p>
+      <a class="figure" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/feature-eq-crossfade.png" target="_blank" rel="noopener"><img src="img/feature-eq-crossfade.webp" width="1200" height="540" alt="Equalizer 15 band dan crossfade" decoding="async" loading="lazy" /></a>
     </section>
 
-    <section class="panel">
-      <div class="panel__head">
-        <h2 class="panel__title">Tampilan Aplikasi di HP</h2>
-      </div>
-      <div class="shot-gallery">
-        <div class="shot-card">
-          <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/feature-player-onyx.png" alt="Player Tema Onyx Gelap" />
-          <div class="shot-card__cap">
-            <strong>Tampilan Gelap Onyx</strong>
-            <span>Desain bersih &amp; elegan dengan lirik live, kontrol cepat, dan cache offline.</span>
-          </div>
-        </div>
-        <div class="shot-card">
-          <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/home-feed.png" alt="Beranda Music Player" />
-          <div class="shot-card__cap">
-            <strong>Beranda Personal</strong>
-            <span>Akses cepat playlist, riwayat dengar, dan mix artis favorit.</span>
-          </div>
-        </div>
-        <div class="shot-card">
-          <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/explore-search.png" alt="Pencarian Lagu & Cover YouTube" />
-          <div class="shot-card__cap">
-            <strong>Pencarian Cepat + Cover YouTube</strong>
-            <span>Cari lagu resmi, artis, album, maupun versi coveran &amp; akustik.</span>
-          </div>
-        </div>
-        <div class="shot-card">
-          <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/lyrics-sync.png" alt="Lirik Sinkron" />
-          <div class="shot-card__cap">
-            <strong>Lirik Sinkron Per Baris &amp; Kata</strong>
-            <span>Lirik otomatis mengikuti waktu lagu secara real-time.</span>
-          </div>
-        </div>
-        <div class="shot-card">
-          <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/cover-gesture.png" alt="Gestur Geser Cover" />
-          <div class="shot-card__cap">
-            <strong>Gestur Slide &amp; Orbit 3D</strong>
-            <span>Geser cover untuk ganti lagu dengan animasi mulus.</span>
-          </div>
-        </div>
-        <div class="shot-card">
-          <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/android-widget.png" alt="Widget Layar Utama Android" />
-          <div class="shot-card__cap">
-            <strong>Widget Layar Utama Android</strong>
-            <span>Kontrol musik langsung dari home screen &amp; lock screen.</span>
-          </div>
-        </div>
-      </div>
+    <section class="features" style="margin-top:14px">
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg></span><h3>Radio otomatis</h3><p>Antrean nyambung sendiri tanpa tombol tambahan.</p></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></svg></span><h3>3 mode tampilan</h3><p>Maksimal, Seimbang, atau Hemat baterai.</p></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span><h3>Offline &amp; auto-update</h3><p>Simpan lagu untuk offline, update dari dalam app.</p></div>
     </section>
-
-    <section class="grid">
-      <div class="card">
-        <h3>Import Playlist Publik</h3>
-        <p>Tarik seluruh lagu dari link playlist publik <strong>YouTube, Spotify, dan Apple Music</strong> langsung lengkap dengan cover album masing-masing lagu.</p>
-      </div>
-      <div class="card">
-        <h3>Crossfade Halus ala Apple Music</h3>
-        <p>Lagu berikutnya disiapkan lebih awal (pre-buffer) sehingga transisi antar lagu menyambung mulus tanpa jeda, tetap jalan saat layar mati.</p>
-      </div>
-      <div class="card">
-        <h3>Smart Radio &amp; Cover YouTube</h3>
-        <p>Antrean otomatis pas genre &amp; bahasa, plus versi coveran dan akustik YouTube ikut muncul di pencarian.</p>
-      </div>
-      <div class="card">
-        <h3>Equalizer 15-Band Stereo</h3>
-        <p>15 frequency band (31 Hz–16 kHz), Preamp, Bass/Treble, Limiter anti-pecah, dan DSP native Android <code>DynamicsProcessing</code>.</p>
-      </div>
-      <div class="card">
-        <h3>Mode Hemat Ekstrem</h3>
-        <p>Pilih <strong>Maksimal / Seimbang / Hemat baterai</strong> di Settings — mode Hemat mematikan blur dan bayangan berat agar lancar di HP lawas.</p>
-      </div>
-      <div class="card">
-        <h3>Offline Cache &amp; Auto-Update</h3>
-        <p>Simpan lagu ke cache disk untuk diputar offline, plus notifikasi pembaruan langsung di dalam aplikasi.</p>
-      </div>
-    </section>
-
-    <div class="cta-bar">
-      <div>
-        <strong>Mau coba sekarang?</strong>
-        <p>Gratis, tanpa iklan, dan tanpa perlu bikin akun.</p>
-      </div>
-      <div class="actions" style="margin-top: 0;">
-        <a class="btn btn-secondary" href="cara-install.html">Cara Install</a>
-        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh APK</a>
+    <div class="cta-bar reveal">
+      <div><strong>Mau coba?</strong><p class="lead" style="margin:2px 0 0">Gratis, tanpa iklan, tanpa akun.</p></div>
+      <div class="actions">
+        <a class="btn btn-secondary" href="cara-install.html">Cara install</a>
+        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Unduh APK</a>
       </div>
     </div>
 
     <footer>
-      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
-      <a href="https://github.com/h3rwthme/Music-/releases">Semua Rilis</a>
+      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> · <a href="https://github.com/h3rwthme/Music-/releases">Semua rilis</a>
     </footer>
   </main>
+  <script src="site.js?v=4" defer></script>
 </body>
 </html>

@@ -3,111 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="description" content="Cara memasang APK Music Player dan melewati peringatan Play Protect." />
   <title>Cara Install — Music Player</title>
-  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg" />
+  <link rel="stylesheet" href="style.css?v=4" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="speculationrules">{"prerender":[{"source":"list","urls":["index.html","keamanan.html","fitur.html"],"eagerness":"moderate"}]}</script>
 </head>
 <body>
   <header class="topnav" id="topnav">
     <nav class="topnav__inner" aria-label="Navigasi utama">
       <a class="topnav__brand" href="index.html">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
+        <img src="img/icon.svg" width="28" height="28" alt="" />
         <span>Music Player</span>
       </a>
       <div class="topnav__links" id="nav-menu">
         <a href="index.html">Beranda</a>
-        <a href="cara-install.html" class="is-active">Cara Install</a>
+        <a href="cara-install.html" aria-current="page">Cara Install</a>
         <a href="keamanan.html">Keamanan</a>
         <a href="fitur.html">Fitur</a>
       </div>
       <div class="topnav__right">
-        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
-        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu" onclick="const h=document.getElementById('topnav');const o=h.classList.toggle('is-open');this.setAttribute('aria-expanded',o);">
-          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-        </button>
+        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>Unduh</span></a>
+        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu"><svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
       </div>
     </nav>
   </header>
+  <div class="nav-scrim" aria-hidden="true"></div>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <div class="page-head">
-      <h1>Cara Install APK</h1>
-      <p>Karena diunduh langsung dari GitHub (di luar Play Store), ikuti 3 langkah singkat ini saat pertama kali memasang aplikasi.</p>
+      <h1>Cara install</h1>
+      <p>Pertama kali pasang dari luar Play Store? Ikuti 3 langkah ini.</p>
     </div>
 
-    <section class="panel">
-      <div class="panel__head">
-        <h2 class="panel__title">Panduan Visual Pemasangan</h2>
-        <span class="tag">3 Langkah</span>
-      </div>
-      <div class="proof-img" style="margin-top: 0; margin-bottom: 16px;">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/install-guide.png" alt="Panduan 3 langkah install Music Player APK dan melewati Google Play Protect" />
-      </div>
-      <div class="spot-steps" style="margin-top: 0;">
-        <div class="spot-step">
-          <span class="spot-num">1</span>
-          <div>
-            <h3>Unduh &amp; Buka APK</h3>
-            <p>Klik tombol <strong>Unduh</strong>, lalu buka file <code>music-player.apk</code> dari notifikasi browser atau folder <strong>Download</strong>.</p>
-          </div>
-        </div>
-        <div class="spot-step">
-          <span class="spot-num">2</span>
-          <div>
-            <h3>Izinkan Sumber Tidak Dikenal</h3>
-            <p>Kalau diminta izin <strong>“Install aplikasi tidak dikenal”</strong>, nyalakan toggle untuk browser / File Manager yang dipakai, lalu kembali.</p>
-          </div>
-        </div>
-        <div class="spot-step">
-          <span class="spot-num">3</span>
-          <div>
-            <h3>Lewati Google Play Protect</h3>
-            <p>Jika muncul peringatan Play Protect, <strong>jangan klik OK</strong>. Klik <strong>Selengkapnya (More details)</strong> lalu pilih <strong>Tetap instal (Install anyway)</strong>.</p>
-          </div>
-        </div>
+    <section class="panel reveal">
+      <a class="figure" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/install-guide.png" target="_blank" rel="noopener"><img src="img/install-guide.webp" width="1200" height="570" alt="Panduan 3 langkah install Music Player dan melewati Play Protect" decoding="async" loading="lazy" /></a>
+      <div class="steps">
+        <div class="step"><span class="step__num">1</span><div><h3>Unduh &amp; buka</h3><p>Buka <code>music-player.apk</code> dari notifikasi atau folder Download.</p></div></div>
+        <div class="step"><span class="step__num">2</span><div><h3>Izinkan pemasangan</h3><p>Nyalakan “Install aplikasi tidak dikenal” untuk browser/File Manager.</p></div></div>
+        <div class="step"><span class="step__num">3</span><div><h3>Play Protect</h3><p>Ketuk <strong>Selengkapnya</strong> → <strong>Tetap instal</strong>.</p></div></div>
       </div>
     </section>
 
-    <section class="panel">
-      <div class="panel__head">
-        <h2 class="panel__title">Kalau Masih Gagal Install</h2>
-        <span class="tag">Samsung &amp; Syarat HP</span>
-      </div>
-      <div class="proof-img" style="margin-top: 0; margin-bottom: 16px;">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/install-samsung.png" alt="Cara mematikan Pemblokir Otomatis Samsung One UI 6+ untuk install APK" />
-      </div>
-      <div class="card-grid">
-        <div class="mini-card">
-          <strong>HP Samsung (One UI 6+)</strong>
-          Matikan sementara <strong>Pemblokir Otomatis (Auto Blocker)</strong> di <em>Pengaturan → Keamanan dan privasi → Pemblokir Otomatis</em>, lalu install lagi.
-        </div>
-        <div class="mini-card">
-          <strong>Muncul “Aplikasi tidak terpasang”</strong>
-          Pastikan HP memakai <strong>Android 7.0+ (64-bit / arm64-v8a)</strong> dan ruang penyimpanan cukup. HP 32-bit lama memang belum didukung.
-        </div>
-        <div class="mini-card">
-          <strong>Update dari Versi Lama</strong>
-          Tidak perlu uninstall. Cukup install menimpa versi sebelumnya — playlist, lagu disukai, dan cache offline tetap aman.
-        </div>
+    <section class="panel reveal">
+      <div class="panel__head"><h2 class="panel__title">Masih gagal?</h2></div>
+      <a class="figure" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/install-samsung.png" target="_blank" rel="noopener"><img src="img/install-samsung.webp" width="1200" height="330" alt="Cara mematikan Pemblokir Otomatis di Samsung One UI 6+" decoding="async" loading="lazy" /></a>
+      <div class="tips">
+        <div class="tip"><strong>HP Samsung</strong>Matikan sementara Pemblokir Otomatis di Pengaturan → Keamanan dan privasi.</div>
+        <div class="tip"><strong>“Aplikasi tidak terpasang”</strong>Butuh Android 7.0+ 64-bit dan ruang penyimpanan cukup.</div>
+        <div class="tip"><strong>Update</strong>Tidak perlu uninstall — install menimpa versi lama.</div>
       </div>
     </section>
-
-    <div class="cta-bar">
-      <div>
-        <strong>Siap pasang?</strong>
-        <p>Masih ragu soal peringatan Play Protect? Cek hasil scan 0/67 VirusTotal dulu.</p>
-      </div>
-      <div class="actions" style="margin-top: 0;">
-        <a class="btn btn-secondary" href="keamanan.html">Lihat Bukti Keamanan</a>
-        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh APK</a>
+    <div class="cta-bar reveal">
+      <div><strong>Siap pasang?</strong><p class="lead" style="margin:2px 0 0">Ragu soal peringatan Play Protect? Cek bukti scan-nya.</p></div>
+      <div class="actions">
+        <a class="btn btn-secondary" href="keamanan.html">Bukti aman</a>
+        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Unduh APK</a>
       </div>
     </div>
 
     <footer>
-      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
-      <a href="https://github.com/h3rwthme/Music-/releases">Semua Rilis</a>
+      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> · <a href="https://github.com/h3rwthme/Music-/releases">Semua rilis</a>
     </footer>
   </main>
+  <script src="site.js?v=4" defer></script>
 </body>
 </html>

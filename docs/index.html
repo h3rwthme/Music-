@@ -3,130 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Player — Unduh APK Android Terbaru</title>
-  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="description" content="Pemutar musik Android ringan: radio otomatis, crossfade, equalizer 15 band, dan import playlist." />
+  <title>Music Player — Unduh APK Android</title>
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg" />
+  <link rel="stylesheet" href="style.css?v=4" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="speculationrules">{"prerender":[{"source":"list","urls":["cara-install.html","keamanan.html","fitur.html"],"eagerness":"moderate"}]}</script>
 </head>
 <body>
   <header class="topnav" id="topnav">
     <nav class="topnav__inner" aria-label="Navigasi utama">
       <a class="topnav__brand" href="index.html">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
+        <img src="img/icon.svg" width="28" height="28" alt="" />
         <span>Music Player</span>
       </a>
       <div class="topnav__links" id="nav-menu">
-        <a href="index.html" class="is-active">Beranda</a>
+        <a href="index.html" aria-current="page">Beranda</a>
         <a href="cara-install.html">Cara Install</a>
         <a href="keamanan.html">Keamanan</a>
         <a href="fitur.html">Fitur</a>
       </div>
       <div class="topnav__right">
-        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
-        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu" onclick="const h=document.getElementById('topnav');const o=h.classList.toggle('is-open');this.setAttribute('aria-expanded',o);">
-          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-        </button>
+        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>Unduh</span></a>
+        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu"><svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
       </div>
     </nav>
   </header>
+  <div class="nav-scrim" aria-hidden="true"></div>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <section class="hero">
-      <img class="logo" src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Logo Music Player" />
-      <div class="pill">
-        <span class="dot"></span>
-        <span id="release-label">v1.1.4 · Android 7.0+ (arm64-v8a) · ~8.7 MB</span>
-      </div>
+      <img class="hero__logo" src="img/icon.svg" width="84" height="84" alt="Logo Music Player" fetchpriority="high" />
+      <span class="pill"><span class="dot"></span><span id="release-label">v1.1.4 · Android 7.0+ · 8.7 MB</span></span>
       <h1>Music Player</h1>
-      <p class="subtitle">
-        Pemutar musik Android ringan dengan Smart Radio, Crossfade halus, Equalizer 15-Band, dan import playlist.
-      </p>
+      <p class="hero__sub">Putar lagu apa saja, antrean nyambung sendiri. Ringan, tanpa iklan, tanpa akun.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">
-          ⬇ Unduh APK Terbaru
-        </a>
-        <a class="btn btn-secondary" href="https://github.com/h3rwthme/Music-">
-          Lihat di GitHub
-        </a>
+        <a class="btn btn-primary" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Unduh APK</a>
+        <a class="btn btn-secondary" href="cara-install.html">Cara install</a>
       </div>
-      <p class="meta" id="release-date">Timpa langsung di atas versi lama — playlist, riwayat &amp; cache offline tetap aman.</p>
-      <div class="quick-links">
-        <a class="quick-link quick-link--safe" href="keamanan.html">✓ 0/67 VirusTotal · Cek Bukti Aman →</a>
-        <a class="quick-link" href="cara-install.html">Panduan Play Protect &amp; Cara Install →</a>
+      <p class="hero__meta" id="release-date">Install menimpa versi lama — data tetap aman</p>
+      <div class="trust">
+        <a href="keamanan.html"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>0/67 VirusTotal</a>
+        <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tanpa iklan</span>
+        <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tanpa akun</span>
       </div>
     </section>
 
-    <section class="radio-spotlight">
-      <div class="spot-head">
-        <span class="spot-badge">Tips Mix &amp; Match Terbaik</span>
-      </div>
-      <h2 class="spot-title">Klik Titik Tiga (⋮) → Pilih “Start radio”</h2>
-      <p class="spot-desc">
-        Supaya antrean lagu otomatis nyambung sesuai selera, ketuk ikon <strong>titik tiga (⋮)</strong> di samping lagu favoritmu lalu pilih <strong>Start radio</strong>.
-      </p>
-      <div class="spot-img">
-        <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/screenshots/smart-radio.png" alt="Panduan Smart Radio: Klik titik tiga lalu pilih Start radio" />
-      </div>
-      <div class="spot-steps">
-        <div class="spot-step">
-          <span class="spot-num">1</span>
-          <div>
-            <h3>Klik Titik Tiga (⋮)</h3>
-            <p>Ketuk ikon <strong>⋮</strong> di kanan lagu favoritmu (atau tekan tahan lagunya).</p>
-          </div>
-        </div>
-        <div class="spot-step">
-          <span class="spot-num">2</span>
-          <div>
-            <h3>Pilih “Start radio”</h3>
-            <p>Ketuk <strong>Start radio</strong> di panel bawah untuk mengaktifkan mix &amp; match otomatis.</p>
-          </div>
-        </div>
-        <div class="spot-step">
-          <span class="spot-num">3</span>
-          <div>
-            <h3>Antrean Seirama</h3>
-            <p>10–12 lagu artis utama, lanjut blok 2–3 lagu band mirip, tanpa lagu dobel.</p>
-          </div>
-        </div>
-      </div>
+    <h2 class="section-title reveal">Kenapa Music Player</h2>
+    <section class="features">
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg></span><h3>Radio otomatis</h3><p>Putar satu lagu, sisanya disusun sendiri sesuai selera.</p></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg></span><h3>Equalizer 15 band</h3><p>Kurva geser jari, preamp, bass &amp; treble.</p></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h13"/><path d="M3 12h9"/><path d="M3 18h9"/><path d="M18 11v8"/><path d="M14 15h8"/></svg></span><h3>Import playlist</h3><p>Dari YouTube, Spotify, atau Apple Music.</p></div>
+      <div class="feature reveal"><span class="feature__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/></svg></span><h3>Ringan di HP lawas</h3><p>Mode Hemat untuk HP Android 7 ke atas.</p></div>
     </section>
 
-    <section class="panel">
+    <section class="panel reveal" style="margin-top:14px">
       <div class="panel__head">
-        <h2 class="panel__title">Yang Baru</h2>
+        <h2 class="panel__title">Yang baru</h2>
         <span class="tag" id="whats-new-tag">v1.1.4</span>
       </div>
-      <ul>
-        <li><strong>Cover Album Asli Hasil Import:</strong> Import playlist Spotify, Apple Music, dan YouTube kini menampilkan cover album asli masing-masing lagu.</li>
-        <li><strong>Notifikasi Update Cepat:</strong> Cek update langsung via CDN tanpa batas limit jaringan &amp; cek ulang otomatis saat app dibuka lagi.</li>
-        <li><strong>Crossfade, Smart Radio &amp; Cover YouTube:</strong> Transisi lagu lebih halus tanpa jeda, antrean pas genre, dan versi coveran YouTube muncul di pencarian.</li>
+      <ul class="news" id="whats-new">
+        <li>Cover album hasil import playlist sesuai lagunya</li>
+        <li>Notifikasi update lebih cepat</li>
       </ul>
     </section>
 
     <footer>
-      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> ·
-      <a href="https://github.com/h3rwthme/Music-/releases">Semua Rilis</a>
+      Dibuat oleh <a href="https://github.com/h3rwthme">@h3rwthme</a> · <a href="https://github.com/h3rwthme/Music-/releases">Semua rilis</a>
     </footer>
   </main>
-
-  <script>
-    fetch("latest.json?t=" + Math.floor(Date.now() / 60000))
-      .then((r) => (r.ok ? r.json() : null))
-      .then((j) => {
-        if (!j || !j.tag) return;
-        const mb = j.size_bytes > 0 ? ` · ${(j.size_bytes / 1048576).toFixed(1)} MB` : "";
-        document.getElementById("release-label").textContent = `${j.tag} · Android arm64-v8a${mb}`;
-        document.getElementById("whats-new-tag").textContent = j.tag;
-        if (j.published_at) {
-          const dt = new Date(j.published_at).toLocaleDateString("id-ID", {
-            year: "numeric", month: "short", day: "numeric"
-          });
-          document.getElementById("release-date").textContent =
-            `Diperbarui ${dt} · Timpa langsung di atas versi lama — playlist & cache offline tetap aman.`;
-        }
-      })
-      .catch(() => {});
-  </script>
+  <script src="site.js?v=4" defer></script>
 </body>
 </html>
