@@ -92,6 +92,28 @@ body {
   transition: background 0.15s ease;
 }
 .topnav__cta:hover { background: var(--accent-hover); }
+.topnav__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.topnav__burger {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.topnav__burger svg { width: 20px; height: 20px; display: block; }
+.topnav__burger .icon-close { display: none; }
+.topnav.is-open .topnav__burger .icon-menu { display: none; }
+.topnav.is-open .topnav__burger .icon-close { display: block; }
 
 .wrap { max-width: 1040px; margin: 0 auto; padding: 36px 20px 72px; }
 .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
@@ -336,11 +358,27 @@ h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; }
 footer { text-align: center; margin-top: 52px; color: var(--muted); font-size: 0.85rem; }
 footer a { color: var(--text); text-decoration: none; }
 
-@media (max-width: 640px) {
-  .topnav__inner { padding: 8px 12px; gap: 8px; }
-  .topnav__brand span { display: none; }
-  .topnav__links a { padding: 5px 9px; font-size: 0.8rem; }
-  .topnav__cta { padding: 6px 11px; font-size: 0.78rem; }
+@media (max-width: 720px) {
+  .topnav__inner { padding: 10px 14px; gap: 10px; flex-wrap: wrap; }
+  .topnav__burger { display: inline-flex; }
+  .topnav__links {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 10px 0 4px;
+    border-top: 1px solid var(--border);
+    overflow: visible;
+  }
+  .topnav.is-open .topnav__links { display: flex; }
+  .topnav__links a {
+    padding: 11px 14px;
+    border-radius: 12px;
+    font-size: 0.94rem;
+  }
+  .topnav__cta { padding: 7px 13px; font-size: 0.82rem; }
   .wrap { padding: 24px 14px 56px; }
   .radio-spotlight, .panel { padding: 18px; border-radius: 18px; }
 }

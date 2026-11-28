@@ -5,22 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keamanan &amp; VirusTotal — Music Player</title>
   <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
-  <header class="topnav">
+  <header class="topnav" id="topnav">
     <nav class="topnav__inner" aria-label="Navigasi utama">
       <a class="topnav__brand" href="index.html">
         <img src="https://raw.githubusercontent.com/h3rwthme/Music-/main/assets/icon.svg" alt="Music Player" />
         <span>Music Player</span>
       </a>
-      <div class="topnav__links">
+      <div class="topnav__links" id="nav-menu">
         <a href="index.html">Beranda</a>
         <a href="cara-install.html">Cara Install</a>
         <a href="keamanan.html" class="is-active">Keamanan</a>
         <a href="fitur.html">Fitur</a>
       </div>
-      <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
+      <div class="topnav__right">
+        <a class="topnav__cta" href="https://github.com/h3rwthme/Music-/releases/latest/download/music-player.apk">⬇ Unduh</a>
+        <button class="topnav__burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu" onclick="const h=document.getElementById('topnav');const o=h.classList.toggle('is-open');this.setAttribute('aria-expanded',o);">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+        </button>
+      </div>
     </nav>
   </header>
 
