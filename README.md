@@ -54,10 +54,17 @@
 
 ## Visual Showcase
 
-| Onyx Player | Import Playlists | 15-Band Equalizer & Crossfade |
+### Core Experience
+| Onyx Player | Personalized Home Feed | Instant Search & Explore |
 | :---: | :---: | :---: |
-| <img src="screenshots/feature-player-onyx.png" alt="Onyx Now Playing" width="100%" /> | <img src="screenshots/feature-import.png" alt="Import playlists from YouTube, Spotify and Apple Music" width="100%" /> | <img src="screenshots/feature-eq-crossfade.png" alt="15-band equalizer and crossfade" width="100%" /> |
-| One neutral black & white palette with a blurred cover backdrop, live lyrics pill and quick controls. | Paste a public YouTube, Spotify or Apple Music playlist link to import it with original covers. | Drag the 15-band curve, adjust Preamp / Bass / Treble, and enjoy gapless equal-power crossfades. |
+| <img src="screenshots/feature-player-onyx.png" alt="Onyx Now Playing" width="100%" /> | <img src="screenshots/home-feed.png" alt="Home Feed" width="100%" /> | <img src="screenshots/explore-search.png" alt="Search and Explore" width="100%" /> |
+| Clean single-tone black & white player with a blurred cover backdrop, live lyrics and quick controls. | Quick-access grid, personalized artist mixes, recently played, and custom playlists. | Top-result cards, category filters (`Songs`, `Artists`, `Albums`), and search history. |
+
+### Signature Details
+| Word-by-Word Synced Lyrics | Home Screen Widget |
+| :---: | :---: |
+| <img src="screenshots/lyrics-sync.png" alt="Synced Lyrics" width="240" /> | <img src="screenshots/android-widget.png" alt="Android Home Widget" width="240" /> |
+| Supports plain text, line-synced `LRC`, word-synced `Enhanced LRC`, and `TTML` duet cues. | Native Android `AppWidgetProvider` with artwork and playback controls on the home screen. |
 
 ---
 
