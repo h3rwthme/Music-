@@ -2,6 +2,18 @@
 
 All notable releases of **Music Player** are documented here.
 
+## [v1.1.3] - 2026-11-28
+
+### Added & Fixed
+- **Public Playlist Import (YouTube, Spotify, Apple Music)**: Paste any public YouTube/YouTube Music, Spotify, or Apple Music playlist link in Library (`Import playlist`) to fetch full tracklists (including YouTube continuation pages) and save them directly as a playable playlist.
+- **YouTube Cover Versions in Search**: Searches both official songs and YouTube music videos in parallel so cover, acoustic, and live YouTube versions show up and play full-length; removed global cover blocking from `smart_queue`.
+- **Apple Music-Style Seamless Crossfade**: Added pre-buffered standby `MediaPlayer` deck in `PlaybackService` (pre-prepared 12 seconds before track end) with 40 Hz raised-cosine equal-power S-curve transitions for 0ms-gap overlaps.
+- **Genre-Locked Mix & Match (Smart Radio)**: Anchored radio sessions to the original seed track, eliminated the fallback queue race condition, added language/genre drift guard (`is_language_mismatch`), and expanded similar-band enrichment to top 5 bands so both direct plays and Start Radio stay true to genre.
+- **Simpler Update Notification**: Replaced download/star icons with a clean notification bell, removed `-` bullet dashes, and tightened wording while keeping the existing layout intact.
+
+### Build
+- Standalone signed Android `arm64-v8a` APK (`versionCode=10103`, `v1+v2+v3` signed).
+
 ## [v1.1.2] - 2026-11-26
 
 ### Added & Fixed
